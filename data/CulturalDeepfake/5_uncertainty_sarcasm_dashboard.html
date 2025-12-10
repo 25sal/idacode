@@ -1,0 +1,523 @@
+
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Uncertainty & Sarcasm Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
+    <script>
+    $(document).ready(function() {
+    $('table.display').DataTable({
+        "pageLength": 10,
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "order": [[ 2, "asc" ]]
+    });
+    });
+    </script>
+    </head>
+    <body style="font-family: Arial; margin: 30px;">
+    
+    <h1>🧠 Uncertainty & Sarcasm Analysis Report</h1>
+    <p><b>Total comments:</b> 199<br>
+    <b>Uncertain:</b> 101<br>
+    <b>Suspect (sarcastic + uncertain):</b> 60</p>
+
+    <h3>Distribution of Sarcasm Labels</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>sarcasm_label</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>non_irony</th>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>irony</th>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Correlation between Stance and Sarcasm</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sarcasm_label</th>
+      <th>irony</th>
+      <th>non_irony</th>
+    </tr>
+    <tr>
+      <th>stance</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>believes the fake news</th>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>criticizes the fake news</th>
+      <td>20</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>neutral</th>
+      <td>10</td>
+      <td>27</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>Interactive Scatter Plot</h2>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.2.0.min.js" integrity="sha256-iZ2u/oU2wf/vDbl/ChcX93WgbBRSBvUO6N413hDz7xM=" crossorigin="anonymous"></script>                <div id="2d6db686-8369-4769-a713-3dacd0b18e4e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("2d6db686-8369-4769-a713-3dacd0b18e4e")) {                    Plotly.newPlot(                        "2d6db686-8369-4769-a713-3dacd0b18e4e",                        [{"customdata":[["Simple mind conditioning for the conspiracy plan in the future","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["The Bermuda Triangle is the main grid that connects to all of the other Pyramids across the Planet...","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["They have known about this for a very long long time","irony","Likely critical or skeptical language."],["The Bermuda triangle stopped existing............","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Incroyable","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Iv been there \ud83d\ude06","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Love it!!!","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Woow.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Amazing","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Muy interesante","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Andrew Davies Radge Pot Singh Craig Williams Robert Matge Steven Burgoyne not sure how legit this is, but for sure it seems more legit than a certain new group member \ud83e\udd23 miss you guys!","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\ud83d\ude02","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["And The Tangerine-Tyrant is an honest man.\n\nhttps:\u002f\u002fexternal.fnap3-1.fna.fbcdn.net\u002femg1\u002fv\u002ft13\u002f1125639282502406653?url=https%3A%2F%2Fmedia.tenor.co%2FNvYQ6uj9njAAAAAM%2Flaugh-funny.gif%3Fc%3DVjFfZmFjZWJvb2s%26t%3DAAYUXpQVK7sIWptkCAC-fw&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s792x792_tt6&ccb=13-1&oh=06_Q399ueIaZ8zNTi6qWKnII6tT7D51w0ZJPIGo9Aq8_AuNeY4&oe=679C25CC&_nc_sid=867500","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["What are the cords??","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Don't be silly! \ud83d\ude02\ud83d\ude02\ud83d\ude02","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["So now they can see under the water near the Bermuda Triangle \ud83d\udc40\ud83d\ude44","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wala lagi ko kakita pyramid sa Bermuda Triangle katong namana mi...gisalom namo tanan dira dapita do....atik pod ka admin da..\ud83d\ude05\ud83d\ude06\ud83e\udd23","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["I hear this is where Atlantis sank","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["So what size are they?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Is this true I'm not sure but I believe if it is true then someone out there knows about it","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Most be a secret pyramids \ud83d\ude02 \ud83d\ude06 \ud83d\ude1d","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Send Indiana Jones down there he'll figure it out","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["It had to be something down there","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Beyond the pillers of Hercules there was Atlantis, according to Plato and the Azure Islands, westwards to Bermuda and in the triangle there are many underwater ruins. Coincidentally in the Atlantic ocean where there are tectonic plates which move and cause earthquakes, as well as glaciers melting in the past. Hopefully we will find out the truth someday \ud83d\udc4d","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Our current technology isn't enough to find out to reveal it's secret...","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wow","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["It's about time someone found them. I've known about them for almost 10 years now. They date back to the time of Lumeria and caused the fall of Atlantis or human consciousness depending on how you see that event occurrence.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Lol.....There's nothing but NASA rockets their...that's their dumping site! \nResearch Flat earth \u2764\ufe0f","irony","Likely critical or skeptical language."],["Alien","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Been my theory since a kid!!!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["We know as God's what was done to our Ocean titan","non_irony","Likely critical or skeptical language."],["I wondered when they would find them..now they have the power for clean energy.only problem they still don't know the order of alignment..","non_irony","Likely critical or skeptical language."],["Wow","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I knew it had to be something in that area to many unexplained things just happen there all the time, and they only just thought about going down to see what is down there, that makes me say ummm y the wait?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["The Bermuda triangles were also all the rockets land from space","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["What... When","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Bruh, Rashad Jamal told us about this a couple years ago, now all of a sudden, there\u2019s a discovery\ud83d\ude02","non_irony","Sarcastic tone reinforced by emoji."],["Wow - got to go one up on Egypt - 'crystal' no less .....","irony","Likely critical or skeptical language."],["\ud83e\udd23\ud83e\udd23 si si dentro ci abita il principe maurice del cocoric\u00f2 \ud83e\udd23\ud83e\udd23\ud83e\udd23\ud83e\udd23","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Last night I found a Blue Gnome, he came close and told me he knows where is a portal who leads to another dimension.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["OMG and if you zoom in you see cows grazing and pig's flying.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I discovered the \"Bahamian Rectangle\" and it hides THREE giant crystal pyramids \ud83d\udcaa\ud83d\udcaa","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Really..or another Hollywood series","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Really?!","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Rashad Jamal talked a lot about this!!!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["They said 2 but i can see 3. They are fool\ud83d\ude02","non_irony","Sarcastic tone reinforced by emoji."],["I know it's 20 years before I said 20 years before there in bermuda tryangle have 1 way going to other side in our universe that is invisible and many powers there for security","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["If so, it would explain a lot.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Lies","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["\ud83d\udcaf BS","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["The found the location of the shaman king fight \ufffc","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Funny how all the people taking these pictures seem to be using a Flip phone Camera from 2005","irony","Ambiguous or uncertain expression \u2014 may need manual review."]],"hovertemplate":"stance=criticizes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"criticizes the fake news","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"criticizes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAQICR4D\u002f\u002f\u002f\u002f+ffxffPwAAAKD0Gt0\u002f\u002f\u002f\u002f\u002ff77b1T8AAADgDprgPwAAACCBQN0\u002fAAAAIDxF3T\u002f\u002f\u002f\u002f\u002f\u002faPHdPwAAAIAfU90\u002fAAAAQPfZ4j\u002f\u002f\u002f\u002f+\u002fSsbaP\u002f\u002f\u002f\u002fz\u002fuQdo\u002f\u002f\u002f\u002f\u002f\u002f6H\u002f1z8AAACgzRrgPwAAACAyMuI\u002f\u002f\u002f\u002f\u002fP+Te2z8AAABASOPgP\u002f\u002f\u002f\u002f99Rs94\u002fAAAA4IHc2z\u002f\u002f\u002f\u002f8\u002fuSPZP\u002f\u002f\u002f\u002f79Motk\u002f\u002f\u002f\u002f\u002fHybp2j\u002f\u002f\u002f\u002f9f6kTfPwAAACBPD98\u002fAAAAYFAR4D8AAAAgLNHiPwAAAGDKld0\u002fAAAA4HJV4j\u002f\u002f\u002f\u002f+fe3jdPwAAAOCqweE\u002fAAAAAHKD2T\u002f\u002f\u002f\u002f8\u002fKBbdPwAAAIDXmOE\u002f\u002f\u002f\u002f\u002fnz\u002fU3T8AAADgclXiPwAAAADFD98\u002f\u002f\u002f\u002f\u002fv1K01z8AAADgh\u002fbZPwAAAECdiuI\u002fAAAAQMvB3z\u002f\u002f\u002f\u002f8\u002fI6\u002fdPwAAAOAoQN4\u002fAAAAgAFF4D8AAACgmB7iPwAAAICOEd8\u002fAAAAwGHW3D8AAADAMobgPwAAAECZSeE\u002f\u002f\u002f\u002f\u002f\u002f6qT2z\u002f\u002f\u002f\u002f8fpWjbPwAAAIBu8d8\u002fAAAAwN1\u002f4j\u002f\u002f\u002f\u002f+\u002fkT3eP\u002f\u002f\u002f\u002f9+Vx90\u002f"},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAoN9l6j8AAABgIR7kPwAAAAC+jOE\u002fAAAAQBj14D8AAAAgAgjnPwAAAMDL4ek\u002fAAAAQJbk6T8AAAAgPiHnPwAAAIBeVO0\u002fAAAAAIAi4D8AAACgxu7rPwAAAKBRJuA\u002fAAAAgMm94j8AAACgiiXuPwAAAOC0WO0\u002fAAAAQClh4T8AAABgp3bhPwAAACBq5es\u002fAAAAgEYT6z8AAAAgafrgPwAAAIAadO0\u002fAAAAAGGJ7T8AAADA1ObmPwAAACBfKuI\u002fAAAAgM7l6j8AAADgesnjPwAAAGCUUus\u002fAAAAoB0+6j8AAACAp3\u002frPwAAAKA9mO4\u002fAAAAYAYB4T8AAAAAs57hPwAAAEBKoOU\u002fAAAAQLy14z8AAACgHT7qPwAAACA8Zu4\u002fAAAAIILx5z8AAADA6IHqPwAAAGC2QOY\u002fAAAAoLuk4j8AAACgITrqPwAAAMBBJuo\u002fAAAAQBd\u002f6T8AAADAgyPnPwAAAOCeHeo\u002fAAAAoILL5T8AAACgLT3jPwAAAMCvbOs\u002fAAAA4EjR6T8AAACAdhjmPwAAAMAoB+g\u002fAAAAYAri4z8AAADAnWnpPwAAAOC2y+I\u002f"},"yaxis":"y","type":"scatter"},{"customdata":[["I find this extremely fascinating.  Very interesting \ud83d\udc4c","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["well, yes... 20 years ago..  \ud83d\ude05","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Prachtig. Geweldig nieuws \ud83d\ude4f\ud83c\udffb\ud83d\ude4f\ud83c\udffb\ud83d\ude4f\ud83c\udffb","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Of course !","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Right. \ud83d\ude06","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Story teller","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Fascinant\u2763\ufe0f","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Fantastique","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Lol right","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Dont tell any body im superman hahahaha","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Live it alone \ud83d\ude14 Father forgive them\ud83d\ude4f\ud83c\udffd","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Talina Davisenn \ud83e\uddd0","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Seeee \ud83d\ude0f\ud83d\ude0f","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["What's the name of the water Orisha?","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Hunter Pardon woe","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\ud83e\udd23","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I saw it in a movie too","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Pyradym.. event horizon","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\u092f\u0947 \u0928\u0939\u0940 \u0939\u094b \u0938\u0915\u0924\u093e","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Humans are nosy.Obviously it's underwater for a reason","non_irony","Likely critical or skeptical language."],["Right, and they are gonna give submersable touurs","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I\u2019m gonna offer this like Kodak Black said \u201clemme drive da boat\u201d - so give me a boat an let\u2019s find out!","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Existe portais q quando entra em harmonia ressonante para mundos diferentes \u00e9 poss\u00edvel essa passagem, foi assim q vieram para criar a guerra de \u00d3rion, desse jeito tamb\u00e9m que os Maias sa\u00edram daqui, a resson\u00e2ncia Shulman tem q ter uma determinada frequ\u00eancia, e a velocidade de rota\u00e7\u00e3o do magma planet\u00e1rio tem q ter a msm resson\u00e2ncia, a\u00ed esses portais vibram como ta\u00e7as de cristal como se estivesse movimentando pela nota musical, elas n\u00e3o rompem, mas se abrem e o tr\u00e2nsito \u00e9 poss\u00edvel.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["\u00c7a fait longtemps qui les on d\u00e9couvertes mais lol \u2026. D\u00e9couverte du mur de chine all\u00f4","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Let's say they are there. We are coming out if an ice age. Water levels have been rising for over 10,000 years. Antarctica was a forest before the ice age.( core samples show plant and tree materials).  We have other sunken coastal cities around the globe at the same depths.\n\nTheirs zero evidence that they are not made by humans.","non_irony","Likely critical or skeptical language."],["Alex O'Brien hmmmmmm","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Cristal...\ud83e\udd23\ud83e\udd23\ud83e\udd23","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Location send me please \ud83d\ude1c","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["What are the geographic coordinates, please.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Energy","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["When's the expedition?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Really","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["The great flood..","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Show me","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Source ?\ud83e\udd14","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fexternal.fnap3-1.fna.fbcdn.net\u002femg1\u002fv\u002ft13\u002f17840144526712607718?url=https%3A%2F%2Fmedia2.giphy.com%2Fmedia%2FWf4OAMTAGWaEo%2Fgiphy.gif%3Fcid%3D999aceacpw6med5hnz63mx8crr0exei5ush8o9lb9mvkwszp%26ep%3Dv1_gifs_search%26rid%3Dgiphy.gif%26ct%3Dg&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s245x160_tt6&ccb=13-1&oh=06_Q399WZEpQn4ls1YszIf5kycUxDuyhwTrnRLpF_41DrlGTtM&oe=679C2A16&_nc_sid=c97757","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["There was an episode one time  I don\u2019t remember the name but it showed some divers and you could see them","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."]],"hovertemplate":"stance=neutral\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"neutral","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"neutral","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAOD3T8AAAAAs5DZPwAAAMAIqOA\u002fAAAAAHfD4T8AAACA5kXiPwAAAMAKF+I\u002fAAAAQBxK2j8AAADAgQDaPwAAAGA9i+A\u002fAAAAIDks3D8AAADgRVTXPwAAAGBbcuA\u002fAAAAoClC2D\u002f\u002f\u002f\u002f8fdM\u002ffPwAAAGAYoto\u002f\u002f\u002f\u002f\u002f\u002f61e2D8AAADgbMrbPwAAAICaUtc\u002f\u002f\u002f\u002f\u002f\u002f2C53z8AAACgshXePwAAAIB7WuA\u002fAAAAwCpS4T\u002f\u002f\u002f\u002f9futfWPwAAAEBFxdk\u002f\u002f\u002f\u002f\u002f\u002fx2J3D8AAACg53TWPwAAAKDzs98\u002fAAAAQMWM1z8AAAAgQD3bPwAAAIAU9+E\u002fAAAAIC8E4j8AAADAsmjhPwAAAECHAN8\u002fAAAAoLOe4T\u002f\u002f\u002f\u002f+\u002fWXvYPwAAAIDVFNw\u002fAAAAQMcP3z8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAYO6v7D8AAACg9L\u002ftPwAAAMBWy+w\u002fAAAAQEpA5j8AAACASj\u002fjPwAAAMC\u002f2eI\u002fAAAAICos5j8AAACgUDnmPwAAAID6U+c\u002fAAAAYEQe4D8AAACAOKvtPwAAAGDDT+o\u002fAAAAIAXm6j8AAADgXbTuPwAAAOBJ8uU\u002fAAAAoAjN4T8AAADALQnkPwAAAAADIOI\u002fAAAAwNdN7T8AAACgu+3lPwAAAIAZA+g\u002fAAAAoL8Z7z8AAAAAjlrtPwAAAKD\u002fcOw\u002fAAAAQLKi4D8AAACAthXkPwAAAIBddOY\u002fAAAAQGE77D8AAACg477tPwAAAGBmHuY\u002fAAAAYIVc7T8AAABApSngPwAAAKBDp+Q\u002fAAAAYNxo4j8AAACAAf\u002ftPwAAAGAaTO4\u002fAAAAID3j5j8="},"yaxis":"y","type":"scatter"},{"customdata":[["Yep. \u2026\u2026\u2026good job. They wernt able to get the sperm where it was sposed to go. \nBack in 2020.  Otherwise we all wouldn\u2019t n\nBe here.    Activation didn\u2019t happen.   Thank god \n\nThose that know know !! Wink wink","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Tiene sentido !","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Inman Campbell dive trip? \ud83e\udd23\ud83d\ude0e","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Fugazy\ufffc","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Yes go \ud83e\udd37\ud83c\udffb\u200d\u2642\ufe0f\n\nhttps:\u002f\u002fexternal.fnap3-1.fna.fbcdn.net\u002femg1\u002fv\u002ft13\u002f10536280947522381717?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2FHE9zsSQN_UMAAAAd%2Ftoon-lagoon-cartoons.gif%3Fc%3DVjFfZmFjZWJvb2tfd2ViY29tbWVudHM&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s498x498_tt6&ccb=13-1&oh=06_Q399qwUChndPB7rthK70gntTzrn2H_n1NyTSVvhDdQS6EUk&oe=679C2C3F&_nc_sid=c97757","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Isso me fez lembrar quando fui visitar meu av\u00f4. Ele colocou a m\u00e3o dele no meu ombro e disse muito emocionado: meu neto, nesse mundo, algum dia, voc\u00ea pode ter certeza de que as pessoas, mesmo com muitas coisas pra fazer, elas ainda v\u00e3o perder tempo lendo o seu coment\u00e1rio...e vice-versa kkkkkkkkk","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Seriously????","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["X una manciata di like \ud83d\ude0eche fantasia \ud83d\ude02\u270c","non_irony","Sarcastic tone reinforced by emoji."],["Must be third...","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["I new there was a reason y plans and ships couldn't go out there just didn't know the cause I can believe it","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."]],"hovertemplate":"stance=believes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"believes the fake news","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"believes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAwLUH1z\u002f\u002f\u002f\u002f8\u002ftbfZP\u002f\u002f\u002f\u002f7+HXdw\u002f\u002f\u002f\u002f\u002f\u002f1\u002f73D8AAADAPpncPwAAAGCo\u002fNs\u002fAAAAoGI62T8AAADABQXgPwAAAIAjadg\u002fAAAA4Gxp3j8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAIAhg7D8AAABg1iXiPwAAAECZRug\u002fAAAAoJvz5z8AAADAn4juPwAAAMCbuew\u002fAAAAoOjS5z8AAABgPsPlPwAAAGAaW+s\u002fAAAA4DGU5j8="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"confidence"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"sarcasm_score"}},"legend":{"title":{"text":"stance"},"tracegroupgap":0},"title":{"text":"Sarcasm vs Model Confidence (Uncertain Comments)"},"shapes":[{"line":{"color":"red","dash":"dash"},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0.7,"y1":0.7,"yref":"y"},{"line":{"color":"orange","dash":"dash"},"type":"line","x0":0.6,"x1":0.6,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Sarcasm Threshold","x":1,"xanchor":"right","xref":"x domain","y":0.7,"yanchor":"bottom","yref":"y"},{"showarrow":false,"text":"Confidence Threshold","x":0.6,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}]},                        {"responsive": true}                    )                };            </script>        </div>
+    
+    <h3>Suspect Comments (with explanations)</h3>
+    <table border="1" class="dataframe display compact">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Content</th>
+      <th>stance</th>
+      <th>confidence</th>
+      <th>sarcasm_score</th>
+      <th>explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I’m gonna offer this like Kodak Black said “lemme drive da boat” - so give me a boat an let’s find out!</td>
+      <td>neutral</td>
+      <td>0.541280</td>
+      <td>0.971893</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>What's the name of the water Orisha?</td>
+      <td>neutral</td>
+      <td>0.497037</td>
+      <td>0.959517</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Lol.....There's nothing but NASA rockets their...that's their dumping site! \nResearch Flat earth ❤️</td>
+      <td>criticizes the fake news</td>
+      <td>0.554891</td>
+      <td>0.956084</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>Yes go 🤷🏻‍♂️\n\nhttps://external.fnap3-1.fna.fbcdn.net/emg1/v/t13/10536280947522381717?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2FHE9zsSQN_UMAAAAd%2Ftoon-lagoon-cartoons.gif%3Fc%3DVjFfZmFjZWJvb2tfd2ViY29tbWVudHM&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s498x498_tt6&ccb=13-1&oh=06_Q399qwUChndPB7rthK70gntTzrn2H_n1NyTSVvhDdQS6EUk&oe=679C2C3F&_nc_sid=c97757</td>
+      <td>believes the fake news</td>
+      <td>0.446853</td>
+      <td>0.954178</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>I knew it had to be something in that area to many unexplained things just happen there all the time, and they only just thought about going down to see what is down there, that makes me say ummm y the wait?</td>
+      <td>criticizes the fake news</td>
+      <td>0.485337</td>
+      <td>0.949980</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>https://external.fnap3-1.fna.fbcdn.net/emg1/v/t13/17840144526712607718?url=https%3A%2F%2Fmedia2.giphy.com%2Fmedia%2FWf4OAMTAGWaEo%2Fgiphy.gif%3Fcid%3D999aceacpw6med5hnz63mx8crr0exei5ush8o9lb9mvkwszp%26ep%3Dv1_gifs_search%26rid%3Dgiphy.gif%26ct%3Dg&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s245x160_tt6&ccb=13-1&oh=06_Q399WZEpQn4ls1YszIf5kycUxDuyhwTrnRLpF_41DrlGTtM&oe=679C2A16&_nc_sid=c97757</td>
+      <td>neutral</td>
+      <td>0.438772</td>
+      <td>0.946790</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>And The Tangerine-Tyrant is an honest man.\n\nhttps://external.fnap3-1.fna.fbcdn.net/emg1/v/t13/1125639282502406653?url=https%3A%2F%2Fmedia.tenor.co%2FNvYQ6uj9njAAAAAM%2Flaugh-funny.gif%3Fc%3DVjFfZmFjZWJvb2s%26t%3DAAYUXpQVK7sIWptkCAC-fw&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s792x792_tt6&ccb=13-1&oh=06_Q399ueIaZ8zNTi6qWKnII6tT7D51w0ZJPIGo9Aq8_AuNeY4&oe=679C25CC&_nc_sid=867500</td>
+      <td>criticizes the fake news</td>
+      <td>0.503272</td>
+      <td>0.942083</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Source ?🤔</td>
+      <td>neutral</td>
+      <td>0.382529</td>
+      <td>0.937379</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>well, yes... 20 years ago..  😅</td>
+      <td>neutral</td>
+      <td>0.399457</td>
+      <td>0.929682</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>What are the geographic coordinates, please.</td>
+      <td>neutral</td>
+      <td>0.425613</td>
+      <td>0.929552</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Live it alone 😔 Father forgive them🙏🏽</td>
+      <td>neutral</td>
+      <td>0.364519</td>
+      <td>0.927151</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Is this true I'm not sure but I believe if it is true then someone out there knows about it</td>
+      <td>criticizes the fake news</td>
+      <td>0.420480</td>
+      <td>0.923020</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>So what size are they?</td>
+      <td>criticizes the fake news</td>
+      <td>0.400531</td>
+      <td>0.920423</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>When's the expedition?</td>
+      <td>neutral</td>
+      <td>0.563011</td>
+      <td>0.917544</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Existe portais q quando entra em harmonia ressonante para mundos diferentes é possível essa passagem, foi assim q vieram para criar a guerra de Órion, desse jeito também que os Maias saíram daqui, a ressonância Shulman tem q ter uma determinada frequência, e a velocidade de rotação do magma planetário tem q ter a msm ressonância, aí esses portais vibram como taças de cristal como se estivesse movimentando pela nota musical, elas não rompem, mas se abrem e o trânsito é possível.</td>
+      <td>neutral</td>
+      <td>0.356917</td>
+      <td>0.917304</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>What are the cords??</td>
+      <td>criticizes the fake news</td>
+      <td>0.568627</td>
+      <td>0.917078</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Amazing</td>
+      <td>criticizes the fake news</td>
+      <td>0.458198</td>
+      <td>0.916549</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>ये नही हो सकता</td>
+      <td>neutral</td>
+      <td>0.495690</td>
+      <td>0.915752</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Prachtig. Geweldig nieuws 🙏🏻🙏🏻🙏🏻</td>
+      <td>neutral</td>
+      <td>0.520512</td>
+      <td>0.899822</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Isso me fez lembrar quando fui visitar meu avô. Ele colocou a mão dele no meu ombro e disse muito emocionado: meu neto, nesse mundo, algum dia, você pode ter certeza de que as pessoas, mesmo com muitas coisas pra fazer, elas ainda vão perder tempo lendo o seu comentário...e vice-versa kkkkkkkkk</td>
+      <td>believes the fake news</td>
+      <td>0.437296</td>
+      <td>0.897657</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>I find this extremely fascinating.  Very interesting 👌</td>
+      <td>neutral</td>
+      <td>0.461121</td>
+      <td>0.896476</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Ça fait longtemps qui les on découvertes mais lol …. Découverte du mur de chine allô</td>
+      <td>neutral</td>
+      <td>0.402665</td>
+      <td>0.888794</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Yep. ………good job. They wernt able to get the sperm where it was sposed to go. \nBack in 2020.  Otherwise we all wouldn’t n\nBe here.    Activation didn’t happen.   Thank god \n\nThose that know know !! Wink wink</td>
+      <td>believes the fake news</td>
+      <td>0.359846</td>
+      <td>0.886723</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Location send me please 😜</td>
+      <td>neutral</td>
+      <td>0.367967</td>
+      <td>0.882249</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Andrew Davies Radge Pot Singh Craig Williams Robert Matge Steven Burgoyne not sure how legit this is, but for sure it seems more legit than a certain new group member 🤣 miss you guys!</td>
+      <td>criticizes the fake news</td>
+      <td>0.418353</td>
+      <td>0.872897</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>So now they can see under the water near the Bermuda Triangle 👀🙄</td>
+      <td>criticizes the fake news</td>
+      <td>0.479695</td>
+      <td>0.871755</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>It's about time someone found them. I've known about them for almost 10 years now. They date back to the time of Lumeria and caused the fall of Atlantis or human consciousness depending on how you see that event occurrence.</td>
+      <td>criticizes the fake news</td>
+      <td>0.460479</td>
+      <td>0.859333</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>They said 2 but i can see 3. They are fool😂</td>
+      <td>criticizes the fake news</td>
+      <td>0.540234</td>
+      <td>0.857017</td>
+      <td>Sarcastic tone reinforced by emoji.</td>
+    </tr>
+    <tr>
+      <td>Must be third...</td>
+      <td>believes the fake news</td>
+      <td>0.381417</td>
+      <td>0.854871</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Our current technology isn't enough to find out to reveal it's secret...</td>
+      <td>criticizes the fake news</td>
+      <td>0.462267</td>
+      <td>0.853831</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Wala lagi ko kakita pyramid sa Bermuda Triangle katong namana mi...gisalom namo tanan dira dapita do....atik pod ka admin da..😅😆🤣</td>
+      <td>criticizes the fake news</td>
+      <td>0.435334</td>
+      <td>0.846103</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Seeee 😏😏</td>
+      <td>neutral</td>
+      <td>0.379038</td>
+      <td>0.840579</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>It had to be something down there</td>
+      <td>criticizes the fake news</td>
+      <td>0.502114</td>
+      <td>0.840553</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>What... When</td>
+      <td>criticizes the fake news</td>
+      <td>0.405672</td>
+      <td>0.828358</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Simple mind conditioning for the conspiracy plan in the future</td>
+      <td>criticizes the fake news</td>
+      <td>0.517761</td>
+      <td>0.824936</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Talina Davisenn 🧐</td>
+      <td>neutral</td>
+      <td>0.513960</td>
+      <td>0.822237</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Wow</td>
+      <td>criticizes the fake news</td>
+      <td>0.572931</td>
+      <td>0.820082</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Wow</td>
+      <td>criticizes the fake news</td>
+      <td>0.572931</td>
+      <td>0.820082</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>🤣🤣 si si dentro ci abita il principe maurice del cocoricò 🤣🤣🤣🤣</td>
+      <td>criticizes the fake news</td>
+      <td>0.463815</td>
+      <td>0.819596</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Last night I found a Blue Gnome, he came close and told me he knows where is a portal who leads to another dimension.</td>
+      <td>criticizes the fake news</td>
+      <td>0.472666</td>
+      <td>0.817170</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Really..or another Hollywood series</td>
+      <td>criticizes the fake news</td>
+      <td>0.485447</td>
+      <td>0.816116</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Love it!!!</td>
+      <td>criticizes the fake news</td>
+      <td>0.457351</td>
+      <td>0.809154</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Iv been there 😆</td>
+      <td>criticizes the fake news</td>
+      <td>0.457062</td>
+      <td>0.808813</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I know it's 20 years before I said 20 years before there in bermuda tryangle have 1 way going to other side in our universe that is invisible and many powers there for security</td>
+      <td>criticizes the fake news</td>
+      <td>0.430888</td>
+      <td>0.806797</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>OMG and if you zoom in you see cows grazing and pig's flying.</td>
+      <td>criticizes the fake news</td>
+      <td>0.508424</td>
+      <td>0.796764</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>The found the location of the shaman king fight ￼</td>
+      <td>criticizes the fake news</td>
+      <td>0.472508</td>
+      <td>0.794143</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Inman Campbell dive trip? 🤣😎</td>
+      <td>believes the fake news</td>
+      <td>0.443209</td>
+      <td>0.758618</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Lies</td>
+      <td>criticizes the fake news</td>
+      <td>0.499111</td>
+      <td>0.750874</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Right, and they are gonna give submersable touurs</td>
+      <td>neutral</td>
+      <td>0.511045</td>
+      <td>0.750378</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Fugazy￼</td>
+      <td>believes the fake news</td>
+      <td>0.452843</td>
+      <td>0.748487</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>The Bermuda triangles were also all the rockets land from space</td>
+      <td>criticizes the fake news</td>
+      <td>0.370381</td>
+      <td>0.748231</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Seriously????</td>
+      <td>believes the fake news</td>
+      <td>0.394189</td>
+      <td>0.744496</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Lol right</td>
+      <td>neutral</td>
+      <td>0.516997</td>
+      <td>0.729001</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>I discovered the "Bahamian Rectangle" and it hides THREE giant crystal pyramids 💪💪</td>
+      <td>criticizes the fake news</td>
+      <td>0.566235</td>
+      <td>0.723085</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Woow.</td>
+      <td>criticizes the fake news</td>
+      <td>0.467860</td>
+      <td>0.722808</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Incroyable</td>
+      <td>criticizes the fake news</td>
+      <td>0.518806</td>
+      <td>0.719728</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Most be a secret pyramids 😂 😆 😝</td>
+      <td>criticizes the fake news</td>
+      <td>0.488581</td>
+      <td>0.715678</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>There was an episode one time  I don’t remember the name but it showed some divers and you could see them</td>
+      <td>neutral</td>
+      <td>0.485338</td>
+      <td>0.715239</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I new there was a reason y plans and ships couldn't go out there just didn't know the cause I can believe it</td>
+      <td>believes the fake news</td>
+      <td>0.475185</td>
+      <td>0.705590</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Cristal...🤣🤣🤣</td>
+      <td>neutral</td>
+      <td>0.495358</td>
+      <td>0.701705</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+  </tbody>
+</table>
+    </body>
+    </html>
+    
