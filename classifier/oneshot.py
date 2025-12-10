@@ -10,7 +10,7 @@ path ="data/CulturalDeepfake"
 # ================================
 MODEL_NAME = "facebook/bart-large-mnli"
 LOCAL_MODEL_DIR = "./local_bart_mnli"
-files = [1]
+files = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 for fileid in files:
     INPUT_FILE = os.path.join(path, f"posts/{fileid}.csv")               # must contain column 'text'
     OUTPUT_FILE = f"{path}/{fileid}_classified_comments.csv"
@@ -98,6 +98,6 @@ for fileid in files:
     plt.grid(axis="y", linestyle="--", alpha=0.6)
     plt.tight_layout()
     plt.savefig(f"{path}/{fileid}_stance_distribution.png", dpi=150)
-    plt.show()
+    # plt.show()
 
     print(f"\n📈 Bar chart saved as: {fileid}_stance_distribution.png")

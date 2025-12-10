@@ -12,7 +12,7 @@ CONFIDENCE_THRESHOLD = 0.6
 SARCASM_THRESHOLD = 0.7
 
 PATH = "data/CulturalDeepfake"
-files = [1]
+files = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 for fileid in files:
     INPUT_FILE = f"{PATH}/{fileid}_classified_comments.csv"         # Input con: text, stance, confidence
     UNCERTAIN_REPORT = f"{PATH}/{fileid}_uncertainty_sarcasm_report.csv"
