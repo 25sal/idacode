@@ -36,55 +36,51 @@ class DistillationTrainer(Trainer):
     def __init__(self, teacher_model, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.teacher_model = teacher_model
-        # Spostiamo il teacher sulla CPU per salvare i 4GB di VRAM per lo student
-        self.teacher_model.to("cpu") 
+        
+        # ORA SPOSTALO SU GPU!
+        self.teacher_model.to(self.args.device) 
+        self.teacher_model.eval() # Sempre congelato
+ 
 
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
-        # 1. Forward pass dello Student (sulla GPU)
-        # HuggingFace Trainer gestisce automaticamente lo spostamento degli input su GPU
+        # 1. Forward Student
         outputs_student = model(**inputs)
         logits_student = outputs_student.get("logits")
 
-        # 2. Forward pass del Teacher (sulla CPU)
-        # Dobbiamo spostare gli input su CPU per il teacher
-        inputs_cpu = {k: v.to("cpu") for k, v in inputs.items()}
-        
+        # 2. Forward Teacher (Diretto su GPU!)
         with torch.no_grad():
-            outputs_teacher = self.teacher_model(**inputs_cpu)
+            outputs_teacher = self.teacher_model(**inputs) # Inputs già su GPU
             logits_teacher = outputs_teacher.get("logits")
 
-        # 3. Calcolo della Loss
-        # Loss standard (CrossEntropy) tra Student e Label reali
+        # 3. Calcolo Loss (Tutto su GPU)
         loss_ce = outputs_student.loss 
-        
-        # Loss di Distillazione (KL Divergence) tra Student e Teacher
-        # Softmax con temperatura per "ammorbidire" le probabilità
         loss_kl = F.kl_div(
             F.log_softmax(logits_student / TEMPERATURE, dim=-1),
             F.softmax(logits_teacher / TEMPERATURE, dim=-1),
             reduction="batchmean"
         ) * (TEMPERATURE ** 2)
 
-        # Loss Finale combinata
         loss = (1.0 - ALPHA) * loss_ce + ALPHA * loss_kl
-
         return (loss, outputs_student) if return_outputs else loss
+
 
 # === 3. ARGOMENTI DI TRAINING (OTTIMIZZATI PER 4GB VRAM) ===
 training_args = TrainingArguments(
     output_dir=OUTPUT_DIR,
-    per_device_train_batch_size=1,        # Cruciale per 4GB VRAM
-    gradient_accumulation_steps=16,       # Simula batch 16
-    fp16=True,                            # Risparmia memoria
+    per_device_train_batch_size=16,       # Alzalo! (16, 32, o 64 a seconda della VRAM)
+    gradient_accumulation_steps=1,        # Non serve più accumulare se il batch size è buono
+    fp16=True,                            # Sempre attivo (o bf16=True se hai una RTX 30xx/40xx/A100)
     learning_rate=5e-5,
-    num_train_epochs=3,
-    logging_steps=100,
-    eval_strategy="no",                   # Disabilita eval durante il training per risparmiare RAM
-    save_strategy="epoch",
-    optim="adamw_bnb_8bit",               # Usa bitsandbytes se installato
-    gradient_checkpointing=True,          # Fondamentale
-    remove_unused_columns=False           # Importante per passare tutti gli input al teacher
+    num_train_epochs=5,                   # Puoi fare più epoche velocemente
+    logging_steps=50,
+    eval_strategy="steps",                # Ora puoi valutare durante il training
+    evaluation_strategy="steps",          # (Retrocompatibilità se serve)
+    save_strategy="steps",
+    load_best_model_at_end=True,
+    optim="adamw_torch",                  # Torna all'ottimizzatore standard (più veloce di bnb)
+    # gradient_checkpointing=False        # Disabilitalo per massima velocità (riabilitalo solo se vai OOM)
 )
+
 
 # === 4. DATASET (Esempio dummy, inserisci il tuo caricamento dati qui) ===
 print("Caricamento del dataset MNLI...")
