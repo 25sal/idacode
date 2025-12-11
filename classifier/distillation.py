@@ -6,6 +6,10 @@ from datasets import Dataset, load_dataset, concatenate_datasets
 import glob
 import pandas as pd
 
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
 # === CONFIGURAZIONE ===
 TEACHER_PATH = "./local_bart_mnli"
 STUDENT_NAME = "facebook/bart-base" # O un modello più piccolo compatibile
@@ -132,7 +136,37 @@ else:
     print("Nessun file CSV trovato.")
 
 
-tokenized_datasets = my_custom_dataset.map(preprocess_custom_dataset, batched=True)
+# ... (Codice precedente di caricamento dataset) ...
+
+def preprocess_function(examples):
+    # Tokenizza il testo
+    tokenized = tokenizer(
+        examples["Content"],  # Assumiamo che la tua colonna si chiami 'Content'
+        max_length=128,       # O il valore che hai scelto
+        truncation=True,
+        padding="max_length"
+    )
+    # Aggiungi le labels se presenti (importante per il trainer)
+    tokenized["labels"] = examples["stance"]
+    return tokenized
+
+print("Tokenizzazione in corso...")
+tokenized_datasets = my_custom_dataset.map(
+    preprocess_function,
+    batched=True,
+    # CRITICO: Rimuovi la colonna originale 'Content' e 'stance'
+    # perché ora sono state convertite in 'input_ids' e 'labels'
+    remove_columns=["Content", "stance"] 
+)
+
+# Verifica cosa è rimasto (dovrebbero essere solo colonne numeriche)
+print("Colonne finali:", tokenized_datasets.column_names)
+# Output atteso: ['input_ids', 'attention_mask', 'labels']
+
+tokenized_datasets.set_format("torch")
+
+
+
 
 # === 5. AVVIO ===
 trainer = DistillationTrainer(

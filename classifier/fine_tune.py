@@ -1,5 +1,5 @@
 import pandas as pd
-from datasets import Dataset
+from datasets import Dataset, load_dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
