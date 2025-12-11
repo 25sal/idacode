@@ -182,7 +182,7 @@ tokenized_datasets = tokenized_datasets.map(flatten_labels)
 # 2. Forziamo il tipo a Intero (o ClassLabel)
 # Se il tuo task ha 3 classi (0, 1, 2) come MNLI
 try:
-    tokenized_datasets = tokenized_datasets.cast_column("labels", ClassLabel(num_classes=3, names=["entailment", "neutral", "contradiction"]))
+    tokenized_datasets = tokenized_datasets.cast_column("labels", ClassLabel(num_classes=3, names=["believes the fake news", "neutral", "criticizes the fake news"]))
 except:
     # Fallback se i nomi non coincidono: cast brutale a int64
     tokenized_datasets = tokenized_datasets.cast_column("labels", Value("int64"))
