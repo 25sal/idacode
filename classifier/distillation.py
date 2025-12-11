@@ -5,7 +5,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trai
 from datasets import Dataset, load_dataset, concatenate_datasets
 import glob
 import pandas as pd
-
+from datasets import ClassLabel, Value
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -163,8 +163,36 @@ tokenized_datasets = my_custom_dataset.map(
 print("Colonne finali:", tokenized_datasets.column_names)
 # Output atteso: ['input_ids', 'attention_mask', 'labels']
 
-tokenized_datasets.set_format("torch")
 
+
+
+
+# ... (dopo il map e remove_columns) ...
+
+# 1. Assicuriamoci che non ci siano liste annidate (appiattimento)
+# Se per qualche motivo 'labels' è una lista di liste [[1], [0], ...], questo la corregge
+def flatten_labels(example):
+    label = example["labels"]
+    if isinstance(label, list):
+        return {"labels": label[0]} # Prendi il primo elemento se è una lista
+    return {"labels": label}
+
+tokenized_datasets = tokenized_datasets.map(flatten_labels)
+
+# 2. Forziamo il tipo a Intero (o ClassLabel)
+# Se il tuo task ha 3 classi (0, 1, 2) come MNLI
+try:
+    tokenized_datasets = tokenized_datasets.cast_column("labels", ClassLabel(num_classes=3, names=["entailment", "neutral", "contradiction"]))
+except:
+    # Fallback se i nomi non coincidono: cast brutale a int64
+    tokenized_datasets = tokenized_datasets.cast_column("labels", Value("int64"))
+
+# 3. Verifica finale
+print("Features dopo il casting:", tokenized_datasets.features)
+# Dovresti vedere: 'labels': ClassLabel(...) oppure Value(dtype='int64')
+
+# 4. Imposta il formato Torch solo alla fine
+tokenized_datasets.set_format("torch")
 
 
 
