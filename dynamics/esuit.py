@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-data_folder = 'data/terremoti/'
+data_folder = 'data/CulturalDeepfake/'
 results = {}
 
 

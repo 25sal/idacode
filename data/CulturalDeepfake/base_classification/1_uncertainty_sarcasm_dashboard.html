@@ -1,0 +1,754 @@
+
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Uncertainty & Sarcasm Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
+    <script>
+    $(document).ready(function() {
+    $('table.display').DataTable({
+        "pageLength": 10,
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "order": [[ 2, "asc" ]]
+    });
+    });
+    </script>
+    </head>
+    <body style="font-family: Arial; margin: 30px;">
+    
+    <h1>🧠 Uncertainty & Sarcasm Analysis Report</h1>
+    <p><b>Total comments:</b> 199<br>
+    <b>Uncertain:</b> 133<br>
+    <b>Suspect (sarcastic + uncertain):</b> 93</p>
+
+    <h3>Distribution of Sarcasm Labels</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>sarcasm_label</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>non_irony</th>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>irony</th>
+      <td>43</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Correlation between Stance and Sarcasm</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sarcasm_label</th>
+      <th>irony</th>
+      <th>non_irony</th>
+    </tr>
+    <tr>
+      <th>stance</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>believes the fake news</th>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>criticizes the fake news</th>
+      <td>27</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>neutral</th>
+      <td>14</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>Interactive Scatter Plot</h2>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.2.0.min.js" integrity="sha256-iZ2u/oU2wf/vDbl/ChcX93WgbBRSBvUO6N413hDz7xM=" crossorigin="anonymous"></script>                <div id="048da5f0-13ff-4037-a295-94771dd0366d" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("048da5f0-13ff-4037-a295-94771dd0366d")) {                    Plotly.newPlot(                        "048da5f0-13ff-4037-a295-94771dd0366d",                        [{"customdata":[["I,ve  and my family  has been on Ester Island.  Great to see the many status. Very interesting   . Wonderful place . Amazing People \ud83d\ude0d","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I\u2019d absolutely love to go to see these! \ud83e\udd70\ud83e\udd70","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I\u2019ll never forget my trip to Easter island. The people were wonderful. I enjoyed it so much.\u2764\ufe0f","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Thank-you so much.  Incredible.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["amazing that there are no other big stones around near by how where the stones brought there","irony","Likely critical or skeptical language."],["Truly amazing. Our true world mega history slowly is being reveled. Can you imagine what they will show us when the true secrets of the Pyramids and the Spinx are finally relieved. We will someday break the 11k BC wall.","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["outstanding and total amazing. would love to go to Easter island","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Really great to see the pics of these amazing stutues. Be safe guys, no side support and very deep vertical cut.","irony","Likely critical or skeptical language."],["Thor Heyerdahl excavated a statue in the 1950s and published his findings in his book 'Aku Aku' in 1958 so this isn't a recent discovery.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Just tip it back a bit and I'll jimmy this bungee band underneath.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Amazing, I would love to see them!","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Sa fait des ann\u00e9es que je croyais qu'il s'agit de t\u00eates seulement","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Such old crafts will help us to proof that bible is translated correctly or not by traslators.","irony","Likely critical or skeptical language."],["Incredible.  Would love to see this place and many other unexplained wonders, some day.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["To everyone that\u2019s interested in Easter island, read books written by Dr John Loret. He was a friend of mine who passed away maybe 10 years ago. I think he was one of the worlds experts on Easter island. \ufffc","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["A lifelong fascination. Great shot. \ud83c\udfb6\u2764\ufe0f\ud83c\udfb6","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I often wonder if they have always been buried and once used to sit on the surface, and were buried over time ???  \ufffc","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Thor Heyerdal.Found that out in the 40s'","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I think the all-time most famous stones were \ufffcMick, Keith, Charlie, and Ronnie.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Je Suis MCO LA TINTING OZONE ALLUM\u00c9 LA LUMI\u00c8RE LUXUEUSEMENT POUR MOI DRISSA MAINTENANT 13-SUIS-MOI \ud83e\udd29\ud83e\udd29\ud83e\udd29\ud83e\udd29\ud83e\udd29\ud83e\udd29\ud83e\udd29","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Hard to believe it took so long to see the rest of the statues, esp with all the laser technology","irony","Likely critical or skeptical language."],["Hello, I'm from Chile.  The island is called RAPA NUI now.","irony","Likely critical or skeptical language."],["Super pic. Amazing pic. Nice wee thong on him and two tennis rackets tucked in. \ud83d\ude02","non_irony","Sarcastic tone reinforced by emoji."],["This guy was a barber he's got a pair of scissors   stuck in his belt","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["So amazing the creative of mankind god bless \ud83d\ude4f\ud83d\ude4f\ud83d\ude4f","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Eu sempre achei que tivesse n\u00e3o sei como m\u00e1s sabia.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["I would imagine that these huge and heavy stone figures have been sinking into the soft ground on Easter island for thousands of years. I'm not sure how old these stone figures really are.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["What amazes me is the amount of dirt that has accumulated around them.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Still a mystery How this big structures were built and moved around.various examples of similar things in south Americas and other parts of the world...","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I have been to Easter Island, a most amazing place.","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Layers of soil dug is heaped over centuries. There could be more fossil remainders at the level where whole body of image stands.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["So much under our feet and we have no idea..Amazing find..","irony","Likely critical or skeptical language."],["I always miss the Easter Inland and M.V.Regent Oat. I stayed there about 2 months in 1983.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Looks like they have their pickleball paddles handy.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I have visited this island in 2011 on my around the world trip. Very interesting island","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Incredible and what an amazing find. Thank you!","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["By the looks of the growth on it\u2019s head\u2026 the statue appears to be lichen the situation.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["MashaAllah everything is so so beautiful \ud83d\ude0d .Tahniah Niza and family.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Seen some of these before. Amazing. c.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["And there's a good horse under him... name that quote.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Magique. Ils ont donc d\u00e9gag\u00e9 tout ce qui se trouvait en-dessous pour lib\u00e9rer la statue. Quel travail ! Comme ces statues inspirent le respect et comme c est bien que cette \u00eele soit prot\u00e9g\u00e9e du tourisme de masse (si ce qu'on en dit est vrai).","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Studying the weathering and discoloration over time and, then, comparing the surrounding soil to determine if it was dug out or silted in over a wide area would determine the original depth it was buried on installation.  The discoloration and wear on the top appear to indicate a longer burial time compared to exposure time.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["That\u2019s actually amazing and would be cool to see in person","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Maybe it was a beach at one pint and they were just playing getting buried in the sand. And they got left there. Stone cold but yeah, it happens","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["one of the great wonders of the world just became even more fascinating","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["I'm guessing most of these digs are fairly recent. We were there on vacation about 10 years ago and only saw 1 that had been at least partially uncovered. It was hard to get to but worth the trip!","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."]],"hovertemplate":"stance=neutral\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"neutral","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"neutral","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAA4BlP4T8AAADA0DLgPwAAAGCYuN4\u002fAAAA4Bl\u002f4T8AAACgrqXgP\u002f\u002f\u002f\u002f99bsNs\u002fAAAA4FDD4T8AAAAAYYDiP\u002f\u002f\u002f\u002f1\u002fCSNs\u002f\u002f\u002f\u002f\u002f34la3z8AAACgxyLgPwAAAKALjuI\u002fAAAAQKo54T\u002f\u002f\u002f\u002f\u002ff5e7dP\u002f\u002f\u002f\u002f38Ist8\u002fAAAAQNmX4j8AAAAA3I7hPwAAAKA3EuA\u002fAAAAABFG2j\u002f\u002f\u002f\u002f+\u002fm0jfPwAAAAD29tw\u002fAAAAoHza4j\u002f\u002f\u002f\u002f\u002ffUIjbPwAAAABGK+A\u002fAAAAoEf24j8AAADgp6zcP\u002f\u002f\u002f\u002f19yDt4\u002f\u002f\u002f\u002f\u002f3yB03D8AAADA6ATgPwAAAKBb8d0\u002fAAAAAHdw4T8AAAAgkA\u002fePwAAAADoleE\u002fAAAAINQL4T8AAACAGsTaP\u002f\u002f\u002f\u002f392b90\u002fAAAAYN2E1z8AAACA8ZbhPwAAAICsE9s\u002fAAAAwCTF3z8AAADAnsXePwAAAEB3FuA\u002fAAAAAIYP3D8AAACggUvgPwAAAKAu1ds\u002fAAAAYE+t3j8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAF+y4j8AAAAgW4zuPwAAACBto+w\u002fAAAAoEzn7j8AAAAgdO3gPwAAAMCjLuk\u002fAAAAAA0U6z8AAACgGmDpPwAAAGAA4+c\u002fAAAAAPsw7D8AAABAlDrrPwAAACBNaOc\u002fAAAAYGto7D8AAAAgmjzlPwAAAOD3w+s\u002fAAAAQEfT5j8AAADAzRTlPwAAACBKUeU\u002fAAAAAAcV6D8AAAAgUr\u002fsPwAAAOCkOuQ\u002fAAAAYPnb6j8AAADA6qPlPwAAAKDKNOE\u002fAAAAYCSL6j8AAABgkuXnPwAAAIAsg+k\u002fAAAAYIlC4j8AAACgqzTmPwAAAEAQguk\u002fAAAAgBRl6j8AAAAgNqjlPwAAAGBW8O0\u002fAAAAoGWw5D8AAAAACmPiPwAAAKC3Mec\u002fAAAA4Eby6z8AAACANj\u002fiPwAAAEArK+w\u002fAAAAoFyq6D8AAACgwv\u002frPwAAAIDnWeI\u002fAAAAoJ1a6z8AAADg4ZjsPwAAAEC5HO4\u002fAAAAYBih7j8="},"yaxis":"y","type":"scatter"},{"customdata":[["The bodies were discovered maaaaany years ago. Strange it keeps popping up as new discovery \ud83e\udd14","non_irony","Sarcastic tone reinforced by emoji."],["This was discovered in the 50s. It's strange that it keeps popping up as a new discovery.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["It is funny how no one wonders why the carving of the canoe is like a 2 year Olds fridge painting and the statue is carved like fine art. I would think 2 different historical times in the life of Easter island.","non_irony","Likely critical or skeptical language."],["Why is it special to suddenly realize that those moais bodies were covered with soil...if you know about basalt rock decaying...turns brown on outside caused by sun and rain...then it falls off the block of volcanic rock as clay and rock chips...then these gradually washed downwards along the mountain slopes in the process mixing with other organic matter...eventually it reaches the hillside standing moais...over hundreds of years it  gradually builds up until it reaches around the statues necks as you see before  digging..are you so stupid as not to realize that without even digging....it seems that you've just got out of the class room and then outside of the high-rise jungles...you are talking about something that is not part of your lives and not your type of culture hence your excitement over a minor aspect of something of not much significance....the is not yours ...it.is.in the people of Te Pito O Te Henua....give them the respect owed to them and their ancestors","non_irony","Likely critical or skeptical language."],["Amazing!  I always wondered!","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["My question is...\nIf they stood on Easter Island for eons of time...why is the body coloring not damaged ..there would have been some change to it and the elements would have damaged the whole body, not just the head ...I love archaelogy!","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Nossa, vai mudar a hist\u00f3ria e trazer mais curiosidades, se j\u00e1 era dif\u00edcil  entender, imagina agora !!!!","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Reminds me of finding my 5x great grandmothers lost inscription.  The stone is from 1789 and had sunk five feet by 1864 when every inscription that could be read were recorded.  He husbands, now worn away, was, but nothing for her.","non_irony","Likely critical or skeptical language."],["I think as you are trying to recreate the walking of the statues to show how they got moved, I think the (recently discovered finds that confirms) it is being overlooked that the beings during that day were 30 - 40 feet tall and most likely very heavy people, were unlike 5'-10\" - 6'-8\" being to 180 lbs being of today.  It's possible, they just carried the statues to the place they needed to go.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Isso \u00e9 incr\u00edvel eu espero que descubra todas as estatuas \u00e9 mostre essa maravilha para todos do mundo inteiro estamos ansiosos \u00e9 que seja muito breve \u2764\ufe0f\ud83c\udde7\ud83c\uddf7","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Very interesting.good job","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Would love to know what the carvings in the stone represent !!","non_irony","Likely critical or skeptical language."],["Wow what a find !!I watched Good morning America when Micheal Strahan was there what a beautiful place and amazing people!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["And if I am not mistaken.that looks like a boombox on its back","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["THINK OF HOW DEEP YOU WOULD REALLY HAVE TO GO ANYWHERE ELSE ON THE ISLAND TO FIND ANYYHING FROM THAT PERIOD","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Bonjour \u00e0 tous je vois une grave erreur la personne qui est assise au fond au pied de la taille ne devrait pas \u00eatre l\u00e0 normalement il devrait y avoir un talus pour la s\u00e9curit\u00e9 si le terrain s'\u00e9boule elle n'aura pas le temps de bouger. C'est arriv\u00e9 malheureusement \u00e0 Beugnatre \u00e0 c\u00f4t\u00e9 de Bapaume dans le Pas-de-Calais en France. Un gar\u00e7on une fille \u00e2g\u00e9e de 17 ans \u00e0 peu pr\u00e8s et b\u00e9n\u00e9vole enseveli vivant","non_irony","Likely critical or skeptical language."],["We were there.  Never thought they had bodies.  What a magnificent find.  How did create them? We will never really know and why there?","irony","Likely critical or skeptical language."],["I wrote about it years ago and I still don't see a forest being planted on Easter Island","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Great Job, but if I was working at that (or any construction company) I would have ditch boxes, or wall supports at least. That is very dangerous and deadly.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["I currently have a Easter Island head replica in my front yard .","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Joseph Lappin I neeeed the whole thing in my garden xx","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["And no support for the excavation, no edge protection. I guess safety isn\u2019t an issue on Easter Island.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Awesome thanks!! How were they made ? Could they have been pushed into the ground? Don\u2019t think so!","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Oh! Wow! Great you found that out in my life time.\ud83c\udf1e","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["What happened to Erich von D\u00e4niken's Chariots of the gods? Years ago I watched a debate between him and a professor from Harvard university. He lost because myths don't count in today's reality","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["I wwuld have to see it with mown eyes before I believe this  Photoshop is excellent","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Para Mi que la tierra ten\u00eda menos tierra a\u00f1os atr\u00e1s, todas las estatuas o casi todas las estatuas y\u002fu  piedras, tumbas, ruinas, pir\u00e1mides, ciudades casi enteras bajo tierra,  siempre lo he pensado desde que era un ni\u00f1o, pero Mis maestres Me tentaron por un ni\u00f1o de mucha imaginaci\u00f3n...","non_irony","Likely critical or skeptical language."],["Good lord.....!!!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Gente isso n\u00e3o \u00e9 uma descoberta rescente, a arqueologia descobriu isso a Anos, n\u00e3o seria um trabalho muito inteligente ver as estatuas e n\u00e3o ter escavado em volta.","non_irony","Likely critical or skeptical language."],["I didn't know that!","non_irony","Likely critical or skeptical language."],["and it was discovered just now... How come it was not known until now.... how strange","non_irony","Likely critical or skeptical language."],["I just want to know how they were able to make these an so many that size . Amazing","non_irony","Likely critical or skeptical language."],["If you see these, go see the Tera Cotta Warriors.  Literally thousands of them, and not one is a duplicate.  All different down to finger nails and shoes.  Circa 210 BC.  Horses, chariots, warriors, cooks archers etc.","irony","Likely critical or skeptical language."],["Were once above ground, tectonic movement\u002f volcanic activity buried them???","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["\u00c9, somos muito mais antigos por esta Terra!!!","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["All those ladies still smiling and know how cold they just made him and gents are loving how quickly they dug him out and how work hard the women worked\ud83e\udd23\ud83e\udd23","irony","Sarcastic tone reinforced by emoji."],["Amazing! Thank you for sharing, son. \u2764\ufe0f","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Gobekli Tepe was intentionally buried. The bodies of these Easter Island masterpieces were undoubtedly intentionally buried also. The burial certainly preserved their art work.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Are those bat-mitten rackets tucked into the back of his belt ??  ; - )","irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["But it\u2019s a special place.  Why couldn\u2019t that have just left it alone","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["That IS amazing!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["What else could there be??maybe by digging a little deeper they could find something else like tombs or if they can get an actual age of the statue's and calculate how much dirt has covered them, because if you remove the dirt you would also need to remove some of the water,then project a line of view from the statue's to see what there looking at,could be a giant chess board ???","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Extraordinary discovering can anybody decipher the raining on the back great work thank you","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Little did we know. I am happy permeation was given to excavate these statues.","non_irony","Likely critical or skeptical language."],["This knowledge is FAR from recent, it has been known for at least 70 years, I have photos of this dating back to the1950\u2019s. Have we b come so dumbed down that nothing is taught any more!","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wow! If a person mind never wondered who would have ever known. The mind is an an amazing place don\u2019t waste it \ud83d\ude0a","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Judging by the line between above and beneath the soil, I would guess they were deliberately buried. Mystery !","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["These figures were actually standing closer to the grade, 1000's of years earlier the sea level increased carrying billions of tons of sand and sediment,  these statues were buried by time, not Man.\nfarmer jim","irony","Likely critical or skeptical language."],["FRED AND I WENT TO EASTER ISLAND 4-5 YRS AGO. THERE'S ONLY ONE PLANE IN AND OUT EACH DAY!! IT WAS WONDERFUL! THEY HAD SIGNS AROUND TELLING YOU WHERE TO GO IN CASE OF A TSUNAMI. ( LIKE ANY PLACE ON THAT ISLAND WOULD BE SAFE)","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["These are amazing","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["It took long to figure out there was more to just a head. Yeah great job \ud83d\udc4f someone decided hey that\u2019s dirt down some more","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Wahou ! Encore plus impressionnant que ce qu'on connaissait. Magnifique travail de ceux qui ont creus\u00e9 pour d\u00e9couvrir que les t\u00eates avaient un corps. Magnifique travail aussi du peuple qui a dress\u00e9 ces belles statues","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["That\u2019s amazing !!!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["We visited Rapa Nui and had the pleasure of viewing hundreds of these Maoi. They are amazing and the local history is fantastic to hear about. A much different story than we have been told.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["\ufffc Noah and the great flood. That\u2019s h\ufffcow they were \ufffc buried!","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["As a teenager read Thor Heyerdahl books.  I knew they had bodies. Also red top knots.  To make the statues the Islanders chopped down all the trees to move the huge blocks of stone. Plus they killed each other.  Read his book Aku Aku.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wow, it just took 336 years to figure out? Looks like someone alone could have dug this hole in a few days.","irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["So why hadn\u2019t the build up of soils continued to completely cover them? Seems they were covered to this point all at a single occurrence!","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Incredible! Who knew they carried a couple of tennis rackets in their waistbands? Or is that a giant pair of scissors?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["I thought this was obvious. Why would they do just a portion of the head when so many others were clearly full figures? I assumed they were buried over the years of island storms and moving sand.","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Were they buried up to their necks, or did the island get covered with dirt somehow? Either way, it is still a mystery.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Amazing it took anyone this long to figure this out.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["What sizes of shoes have they found?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Interesting engraving on the back.  Never seen that in any of the books or tv shows.","irony","Likely critical or skeptical language."],["When the customer in front at the store insists on paying for groceries with coins.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["I believe the statues to be much older that we are led to believe as shown by the amount of soil build up that half buried them . Perhaps part of the more ancient Lemuria","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Just proves there was a great flood. Possible explanation how they were covered when the waters settled.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Il y a du avoir un dr\u00f4le de changement climatique \u00e0 l \u00e9poque","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Muy Bacana esas obras de arte antiguas, me parece ch\u00e9vere esa profesi\u00f3n","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Maybe they didn\u2019t want them to be dug up. Glad its you and not me.\ud83e\udd7a\ud83d\ude35ha ha just kidding\u2026.no I\u2019m not\u2026.ya, I am \ud83d\ude09\u2026.no I\u2019m not.\ud83d\ude04\ud83d\ude04\ud83d\ude04\ud83d\ude33","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["I can see this. Amazing. What else was you doing on Easter island at the time?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Tha\u00efs is si amazing! Such treasures!!","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Mostly women on this project. Is that because they are really good at digging up the past?","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["The evidence is probably at the level of the base of statues. Amazing work","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wow what an amazing adventure","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["What amazes me is no one thought to check b4.","non_irony","Likely critical or skeptical language."],["theres speculation that a pole shift may have caused the sudden rise in soil levels to bury these statues so perfectly, the 2 mile high tidal wave shifting millions of tons of silt within a few hrs! 1000kph winds as the land mass's shift half way horizontally but the water and air continue to spin with the earths old rotation, everything on the planet gets wiped clean, land reformed, things buried\u002f part buried... as we see here!  all this within a 24hr period and they say we are well overdue for the next!  the Giant sphinx bares erosion markings around its base where water has come through at an alarming speed and depth!  attributed to a sudden pole shift.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["He has pickle ball paddles in his g-string \ud83d\ude02","non_irony","Sarcastic tone reinforced by emoji."],["I wonder how long it would take for that amount of soil to be deposited around them up to there necks , they seem older than we have been told 900 years old yet there thousands of years od deposited  material, is it just me","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."]],"hovertemplate":"stance=criticizes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"criticizes the fake news","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"criticizes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAA4C0f4j8AAAAAR5HaP\u002f\u002f\u002f\u002fz+wDt0\u002fAAAAIAEe4z\u002f\u002f\u002f\u002f9\u002fufPcPwAAACC91to\u002fAAAAoC4M2j8AAAAAA2bZPwAAAECqZeA\u002fAAAAwM0w4j8AAACgWXviPwAAAEAMaeA\u002fAAAAAEx+4T\u002f\u002f\u002f\u002f\u002ffHD7dPwAAAMAe6uA\u002fAAAAACcK4D8AAADA6AHZP\u002f\u002f\u002f\u002f588I90\u002fAAAAwCqE2z\u002f\u002f\u002f\u002f9fRAPbPwAAAICrqtc\u002fAAAAALLn3j8AAABAIVLZPwAAAADKvOI\u002fAAAAoOYj4z\u002f\u002f\u002f\u002f+\u002fkZ3bPwAAAABvit0\u002fAAAAwDPA4D8AAABAE\u002fDgP\u002f\u002f\u002f\u002f38MmN8\u002fAAAAoGzK4T8AAAAANYvcPwAAAACzO9k\u002fAAAAAGsJ4D\u002f\u002f\u002f\u002f\u002f\u002fKOTaPwAAACD64+I\u002fAAAAgOYw4j8AAAAAe\u002fXbPwAAAKDxTOI\u002fAAAAoG3l2j8AAABAzgPiPwAAAIAjJ+A\u002fAAAAoGE\u002f3j\u002f\u002f\u002f\u002f+\u002fSRXcPwAAAEBEiN0\u002f\u002f\u002f\u002f\u002f3w+82z8AAADA\u002ftbdP\u002f\u002f\u002f\u002f7\u002fKctw\u002f\u002f\u002f\u002f\u002fnwQ93D8AAAAgoTrhPwAAAICXI+E\u002fAAAAAGYl4T8AAADgdf7hP\u002f\u002f\u002f\u002f7\u002fR8d4\u002f\u002f\u002f\u002f\u002fn8n71j\u002f\u002f\u002f\u002f8\u002ft3XcPwAAAABe9eE\u002fAAAAoD4m4z8AAADASzviPwAAAEDBDOE\u002fAAAA4PT93D8AAAAA3CXiP\u002f\u002f\u002f\u002f3+2zto\u002fAAAA4KYu4D8AAACAZSPZPwAAAKDr\u002fuA\u002f\u002f\u002f\u002f\u002ffwmS3D8AAAAgeofaP\u002f\u002f\u002f\u002f78X8t8\u002f\u002f\u002f\u002f\u002fH5\u002fF2T8AAABgfO3iPwAAAICij+E\u002fAAAAYP2u4j8AAABg1GLfPwAAAEDSqN4\u002fAAAAQHCH4j8AAABAD3jfPwAAAKBzBeE\u002fAAAAQB2T3T8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAPkS5z8AAADgMBrnPwAAAED\u002ffeM\u002fAAAAQIyF6T8AAACAWmntPwAAACCn5Oo\u002fAAAAAGcg5z8AAAAAnIfkPwAAAEC5euE\u002fAAAAgIMI6z8AAAAgkd7tPwAAAAAsN+U\u002fAAAAQFQd6D8AAACAyrzoPwAAAECQW+4\u002fAAAA4KXO7T8AAABAvkviPwAAAKC9oOY\u002fAAAAAGX16z8AAACAgD3oPwAAAECP\u002f+w\u002fAAAAYHmu5z8AAAAAGKbuPwAAAGCSkOs\u002fAAAAoNRO5j8AAADgwS\u002fnPwAAAID9HuE\u002fAAAAwHk\u002f4T8AAACgrTHrPwAAAKB5g+E\u002fAAAAIAc54z8AAACApwfiPwAAAEBkbeE\u002fAAAAoF4O7T8AAAAgr\u002fLhPwAAAID9Rew\u002fAAAAoOG95D8AAADASmXpPwAAAGBUBug\u002fAAAAIPQf4z8AAADg4ljoPwAAAICJ9+4\u002fAAAAoAoA7j8AAAAg7zrgPwAAAEDgHOs\u002fAAAAAHPR7T8AAABgvGPnPwAAAOB0S+Q\u002fAAAAQFzw7D8AAACgmYjiPwAAACB2Luw\u002fAAAAIKE+6T8AAADgrrHrPwAAAIAiwes\u002fAAAAwOlp5z8AAAAAIzfqPwAAAEBFfuU\u002fAAAAgJF+6z8AAADAwcbqPwAAAAAore0\u002fAAAAwLcX7z8AAACgbF7pPwAAAOAMgO4\u002fAAAAYKdn6j8AAAAgpYPpPwAAAECVX+I\u002fAAAAYPwg5T8AAACga4TmPwAAAEBCmec\u002fAAAAAHMW6z8AAADAYlvtPwAAAGCOq+s\u002fAAAAAIme4T8AAADgO7bmPwAAAIB8PO8\u002fAAAAgNfe4T8AAACANZvpPwAAAGCbFOo\u002fAAAAIA5o7T8="},"yaxis":"y","type":"scatter"},{"customdata":[["Oh I\u2019d love to do something like that!","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I always suspected that I remember asking a teacher and being told not to ask stupid questions. Well that's one up yours Sir\n\nhttps:\u002f\u002fscontent.fnap3-1.fna.fbcdn.net\u002fv\u002ft39.1997-6\u002f106213587_953859015076456_6116743013412303382_n.png?stp=dst-png_s160x160&_nc_cat=1&ccb=1-7&_nc_sid=23dd7b&_nc_ohc=3eNNgwzQakAQ7kNvgGVcN9C&_nc_zt=26&_nc_ht=scontent.fnap3-1.fna&_nc_gid=A33cyC0Hcfljvjv6fRxbVh6&oh=00_AYAAmIrAYR6FcEMrmnqKyZpb_NzCb4TjPFsruWQgIdbxxg&oe=67A0046B","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Eu sempre pesei isso\nDemoraram muito pra escavarem e descobrirem\n\nhttps:\u002f\u002fscontent.fnap3-2.fna.fbcdn.net\u002fv\u002ft39.1997-6\u002f330811743_1398609210978148_6488027312609750130_n.webp?stp=dst-webp_tf0-1&_nc_cat=110&ccb=1-7&_nc_sid=72b077&_nc_ohc=4EDkpsqxT8wQ7kNvgE6ZUgu&_nc_zt=26&_nc_ht=scontent.fnap3-2.fna&_nc_gid=A2TeKuugcqZMi4t5Bi6nLqr&oh=00_AYB5Tdw0Ng6halUdqzycHy4QiFgDI7xKAn-ofKhaW9G62w&oe=67A00EAA","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Absolutely beautiful !    Gotta love the history of our planet. !\nPlease don\u2019t let the IDIOTS near it that have destroyed the American history in the form of removal or total destruction.  \u2014\u2014-All without ACCOUNTABILITY.","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["It suggests that the people of the area at time were large and intelligent.\n\nhttps:\u002f\u002fexternal.fnap3-1.fna.fbcdn.net\u002femg1\u002fv\u002ft13\u002f14745190789980440298?url=https%3A%2F%2Fmedia.tenor.co%2FOVXf5baMK3QAAAAC%2Fsupervivencia-al-desnudo-fernanda-perez.gif%3Ft%3DAAX2f2HHhFsKviJFsAnJ1Q%26c%3DVjFfZmFjZWJvb2s%26itemid%3D25758860&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s792x792_tt6&ccb=13-1&oh=06_Q399h3G-uoAQh0BOxqB8vCnjnDP4xhRMgujBs-i_0guNyMA&oe=679C1ED9&_nc_sid=867500","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Les hieroglyphes grav\u00e9s sur leur dos praaient enfin devoiler leurs secrets. Alors specialistes et savants de tous bords,qui assuraient que ces statues n'etaient que des tetes...Il en est de ces gens ce qu'ils sont encore aujourd'hui des commentateurs de teles ,des savants es-covid ,des conseill\u00e9s politiques.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I believe we already knew that.  Many pics of the bodies just saying.  However awesome what y'all are doing.","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Je ne comprends toujours pas comment elles sont arriv\u00e9es l\u00e0 et comment elles ont \u00e9t\u00e9 enterr\u00e9es , a moins qu 'il y ait eu un tsunami qui a tout recouvert !\ud83d\ude0e","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."]],"hovertemplate":"stance=believes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"believes the fake news","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"believes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"\u002f\u002f\u002f\u002f39B21j8AAACgcSTcPwAAAOAyMN8\u002f\u002f\u002f\u002f\u002fvxq53z\u002f\u002f\u002f\u002f\u002f\u002fW7HZPwAAAIAMIeA\u002f\u002f\u002f\u002f\u002fX3b32T8AAAAAfsXcPw=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAMca4j8AAAAgHjHuPwAAAGDSqu4\u002fAAAAYOLK6T8AAACg3VXuPwAAAMCv4es\u002fAAAAYPMg7j8AAADANLPlPw=="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"confidence"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"sarcasm_score"}},"legend":{"title":{"text":"stance"},"tracegroupgap":0},"title":{"text":"Sarcasm vs Model Confidence (Uncertain Comments)"},"shapes":[{"line":{"color":"red","dash":"dash"},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0.7,"y1":0.7,"yref":"y"},{"line":{"color":"orange","dash":"dash"},"type":"line","x0":0.6,"x1":0.6,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Sarcasm Threshold","x":1,"xanchor":"right","xref":"x domain","y":0.7,"yanchor":"bottom","yref":"y"},{"showarrow":false,"text":"Confidence Threshold","x":0.6,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}]},                        {"responsive": true}                    )                };            </script>        </div>
+    
+    <h3>Suspect Comments (with explanations)</h3>
+    <table border="1" class="dataframe display compact">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Content</th>
+      <th>stance</th>
+      <th>confidence</th>
+      <th>sarcasm_score</th>
+      <th>explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wow what an amazing adventure</td>
+      <td>criticizes the fake news</td>
+      <td>0.479054</td>
+      <td>0.976134</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Were they buried up to their necks, or did the island get covered with dirt somehow? Either way, it is still a mystery.</td>
+      <td>criticizes the fake news</td>
+      <td>0.453000</td>
+      <td>0.971645</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>What else could there be??maybe by digging a little deeper they could find something else like tombs or if they can get an actual age of the statue's and calculate how much dirt has covered them, because if you remove the dirt you would also need to remove some of the water,then project a line of view from the statue's to see what there looking at,could be a giant chess board ???</td>
+      <td>criticizes the fake news</td>
+      <td>0.504778</td>
+      <td>0.967717</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Thank-you so much.  Incredible.</td>
+      <td>neutral</td>
+      <td>0.546765</td>
+      <td>0.965735</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Eu sempre pesei isso\nDemoraram muito pra escavarem e descobrirem\n\nhttps://scontent.fnap3-2.fna.fbcdn.net/v/t39.1997-6/330811743_1398609210978148_6488027312609750130_n.webp?stp=dst-webp_tf0-1&_nc_cat=110&ccb=1-7&_nc_sid=72b077&_nc_ohc=4EDkpsqxT8wQ7kNvgE6ZUgu&_nc_zt=26&_nc_ht=scontent.fnap3-2.fna&_nc_gid=A2TeKuugcqZMi4t5Bi6nLqr&oh=00_AYB5Tdw0Ng6halUdqzycHy4QiFgDI7xKAn-ofKhaW9G62w&oe=67A00EAA</td>
+      <td>believes the fake news</td>
+      <td>0.487317</td>
+      <td>0.958352</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Awesome thanks!! How were they made ? Could they have been pushed into the ground? Don’t think so!</td>
+      <td>criticizes the fake news</td>
+      <td>0.395638</td>
+      <td>0.957775</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I'm guessing most of these digs are fairly recent. We were there on vacation about 10 years ago and only saw 1 that had been at least partially uncovered. It was hard to get to but worth the trip!</td>
+      <td>neutral</td>
+      <td>0.479328</td>
+      <td>0.957165</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I’d absolutely love to go to see these! 🥰🥰</td>
+      <td>neutral</td>
+      <td>0.506203</td>
+      <td>0.954633</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>What sizes of shoes have they found?</td>
+      <td>criticizes the fake news</td>
+      <td>0.418867</td>
+      <td>0.953131</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>THINK OF HOW DEEP YOU WOULD REALLY HAVE TO GO ANYWHERE ELSE ON THE ISLAND TO FIND ANYYHING FROM THAT PERIOD</td>
+      <td>criticizes the fake news</td>
+      <td>0.528579</td>
+      <td>0.948677</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>It suggests that the people of the area at time were large and intelligent.\n\nhttps://external.fnap3-1.fna.fbcdn.net/emg1/v/t13/14745190789980440298?url=https%3A%2F%2Fmedia.tenor.co%2FOVXf5baMK3QAAAAC%2Fsupervivencia-al-desnudo-fernanda-perez.gif%3Ft%3DAAX2f2HHhFsKviJFsAnJ1Q%26c%3DVjFfZmFjZWJvb2s%26itemid%3D25758860&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s792x792_tt6&ccb=13-1&oh=06_Q399h3G-uoAQh0BOxqB8vCnjnDP4xhRMgujBs-i_0guNyMA&oe=679C1ED9&_nc_sid=867500</td>
+      <td>believes the fake news</td>
+      <td>0.401450</td>
+      <td>0.947982</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>I always suspected that I remember asking a teacher and being told not to ask stupid questions. Well that's one up yours Sir\n\nhttps://scontent.fnap3-1.fna.fbcdn.net/v/t39.1997-6/106213587_953859015076456_6116743013412303382_n.png?stp=dst-png_s160x160&_nc_cat=1&ccb=1-7&_nc_sid=23dd7b&_nc_ohc=3eNNgwzQakAQ7kNvgGVcN9C&_nc_zt=26&_nc_ht=scontent.fnap3-1.fna&_nc_gid=A33cyC0Hcfljvjv6fRxbVh6&oh=00_AYAAmIrAYR6FcEMrmnqKyZpb_NzCb4TjPFsruWQgIdbxxg&oe=67A0046B</td>
+      <td>believes the fake news</td>
+      <td>0.439724</td>
+      <td>0.943496</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>I believe we already knew that.  Many pics of the bodies just saying.  However awesome what y'all are doing.</td>
+      <td>believes the fake news</td>
+      <td>0.405729</td>
+      <td>0.941522</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>one of the great wonders of the world just became even more fascinating</td>
+      <td>neutral</td>
+      <td>0.434887</td>
+      <td>0.941006</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Extraordinary discovering can anybody decipher the raining on the back great work thank you</td>
+      <td>criticizes the fake news</td>
+      <td>0.472618</td>
+      <td>0.937505</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I always miss the Easter Inland and M.V.Regent Oat. I stayed there about 2 months in 1983.</td>
+      <td>neutral</td>
+      <td>0.549549</td>
+      <td>0.935588</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Very interesting.good job</td>
+      <td>criticizes the fake news</td>
+      <td>0.577557</td>
+      <td>0.933419</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Wow! If a person mind never wondered who would have ever known. The mind is an an amazing place don’t waste it 😊</td>
+      <td>criticizes the fake news</td>
+      <td>0.433353</td>
+      <td>0.931818</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Bonjour à tous je vois une grave erreur la personne qui est assise au fond au pied de la taille ne devrait pas être là normalement il devrait y avoir un talus pour la sécurité si le terrain s'éboule elle n'aura pas le temps de bouger. C'est arrivé malheureusement à Beugnatre à côté de Bapaume dans le Pas-de-Calais en France. Un garçon une fille âgée de 17 ans à peu près et bénévole enseveli vivant</td>
+      <td>criticizes the fake news</td>
+      <td>0.501239</td>
+      <td>0.931476</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>I thought this was obvious. Why would they do just a portion of the head when so many others were clearly full figures? I assumed they were buried over the years of island storms and moving sand.</td>
+      <td>criticizes the fake news</td>
+      <td>0.532807</td>
+      <td>0.927387</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Amazing!  I always wondered!</td>
+      <td>criticizes the fake news</td>
+      <td>0.452376</td>
+      <td>0.919111</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I wonder how long it would take for that amount of soil to be deposited around them up to there necks , they seem older than we have been told 900 years old yet there thousands of years od deposited  material, is it just me</td>
+      <td>criticizes the fake news</td>
+      <td>0.462104</td>
+      <td>0.918952</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I can see this. Amazing. What else was you doing on Easter island at the time?</td>
+      <td>criticizes the fake news</td>
+      <td>0.591490</td>
+      <td>0.917405</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Were once above ground, tectonic movement/ volcanic activity buried them???</td>
+      <td>criticizes the fake news</td>
+      <td>0.501150</td>
+      <td>0.908004</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Joseph Lappin I neeeed the whole thing in my garden xx</td>
+      <td>criticizes the fake news</td>
+      <td>0.369792</td>
+      <td>0.906196</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>FRED AND I WENT TO EASTER ISLAND 4-5 YRS AGO. THERE'S ONLY ONE PLANE IN AND OUT EACH DAY!! IT WAS WONDERFUL! THEY HAD SIGNS AROUND TELLING YOU WHERE TO GO IN CASE OF A TSUNAMI. ( LIKE ANY PLACE ON THAT ISLAND WOULD BE SAFE)</td>
+      <td>criticizes the fake news</td>
+      <td>0.441224</td>
+      <td>0.904341</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Je Suis MCO LA TINTING OZONE ALLUMÉ LA LUMIÈRE LUXUEUSEMENT POUR MOI DRISSA MAINTENANT 13-SUIS-MOI 🤩🤩🤩🤩🤩🤩🤩</td>
+      <td>neutral</td>
+      <td>0.488807</td>
+      <td>0.898355</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I’ll never forget my trip to Easter island. The people were wonderful. I enjoyed it so much.❤️</td>
+      <td>neutral</td>
+      <td>0.480017</td>
+      <td>0.894949</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Maybe it was a beach at one pint and they were just playing getting buried in the sand. And they got left there. Stone cold but yeah, it happens</td>
+      <td>neutral</td>
+      <td>0.509217</td>
+      <td>0.893662</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Such old crafts will help us to proof that bible is translated correctly or not by traslators.</td>
+      <td>neutral</td>
+      <td>0.538289</td>
+      <td>0.887747</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>All those ladies still smiling and know how cold they just made him and gents are loving how quickly they dug him out and how work hard the women worked🤣🤣</td>
+      <td>criticizes the fake news</td>
+      <td>0.590329</td>
+      <td>0.883544</td>
+      <td>Sarcastic tone reinforced by emoji.</td>
+    </tr>
+    <tr>
+      <td>Just tip it back a bit and I'll jimmy this bungee band underneath.</td>
+      <td>neutral</td>
+      <td>0.489901</td>
+      <td>0.880979</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>It took long to figure out there was more to just a head. Yeah great job 👏 someone decided hey that’s dirt down some more</td>
+      <td>criticizes the fake news</td>
+      <td>0.535595</td>
+      <td>0.880672</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Seen some of these before. Amazing. c.</td>
+      <td>neutral</td>
+      <td>0.423076</td>
+      <td>0.880270</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Magique. Ils ont donc dégagé tout ce qui se trouvait en-dessous pour libérer la statue. Quel travail ! Comme ces statues inspirent le respect et comme c est bien que cette île soit protégée du tourisme de masse (si ce qu'on en dit est vrai).</td>
+      <td>neutral</td>
+      <td>0.480812</td>
+      <td>0.874971</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Great Job, but if I was working at that (or any construction company) I would have ditch boxes, or wall supports at least. That is very dangerous and deadly.</td>
+      <td>criticizes the fake news</td>
+      <td>0.429942</td>
+      <td>0.873705</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>By the looks of the growth on it’s head… the statue appears to be lichen the situation.</td>
+      <td>neutral</td>
+      <td>0.367484</td>
+      <td>0.873325</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Les hieroglyphes gravés sur leur dos praaient enfin devoiler leurs secrets. Alors specialistes et savants de tous bords,qui assuraient que ces statues n'etaient que des tetes...Il en est de ces gens ce qu'ils sont encore aujourd'hui des commentateurs de teles ,des savants es-covid ,des conseillés politiques.</td>
+      <td>believes the fake news</td>
+      <td>0.504034</td>
+      <td>0.871300</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>To everyone that’s interested in Easter island, read books written by Dr John Loret. He was a friend of mine who passed away maybe 10 years ago. I think he was one of the worlds experts on Easter island. ￼</td>
+      <td>neutral</td>
+      <td>0.495241</td>
+      <td>0.867672</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>We visited Rapa Nui and had the pleasure of viewing hundreds of these Maoi. They are amazing and the local history is fantastic to hear about. A much different story than we have been told.</td>
+      <td>criticizes the fake news</td>
+      <td>0.483509</td>
+      <td>0.867326</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>That’s amazing !!!</td>
+      <td>criticizes the fake news</td>
+      <td>0.562312</td>
+      <td>0.865440</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Thaïs is si amazing! Such treasures!!</td>
+      <td>criticizes the fake news</td>
+      <td>0.548784</td>
+      <td>0.864692</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Oh! Wow! Great you found that out in my life time.🌞</td>
+      <td>criticizes the fake news</td>
+      <td>0.585546</td>
+      <td>0.861398</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>So why hadn’t the build up of soils continued to completely cover them? Seems they were covered to this point all at a single occurrence!</td>
+      <td>criticizes the fake news</td>
+      <td>0.598419</td>
+      <td>0.859200</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>That’s actually amazing and would be cool to see in person</td>
+      <td>neutral</td>
+      <td>0.438447</td>
+      <td>0.854811</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Amazing, I would love to see them!</td>
+      <td>neutral</td>
+      <td>0.504246</td>
+      <td>0.850901</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Gente isso não é uma descoberta rescente, a arqueologia descobriu isso a Anos, não seria um trabalho muito inteligente ver as estatuas e não ter escavado em volta.</td>
+      <td>criticizes the fake news</td>
+      <td>0.529306</td>
+      <td>0.849814</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>This knowledge is FAR from recent, it has been known for at least 70 years, I have photos of this dating back to the1950’s. Have we b come so dumbed down that nothing is taught any more!</td>
+      <td>criticizes the fake news</td>
+      <td>0.461442</td>
+      <td>0.847275</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Maybe they didn’t want them to be dug up. Glad its you and not me.🥺😵ha ha just kidding….no I’m not….ya, I am 😉….no I’m not.😄😄😄😳</td>
+      <td>criticizes the fake news</td>
+      <td>0.402687</td>
+      <td>0.846490</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>outstanding and total amazing. would love to go to Easter island</td>
+      <td>neutral</td>
+      <td>0.555092</td>
+      <td>0.846198</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Isso é incrível eu espero que descubra todas as estatuas é mostre essa maravilha para todos do mundo inteiro estamos ansiosos é que seja muito breve ❤️🇧🇷</td>
+      <td>criticizes the fake news</td>
+      <td>0.568457</td>
+      <td>0.844789</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>My question is...\nIf they stood on Easter Island for eons of time...why is the body coloring not damaged ..there would have been some change to it and the elements would have damaged the whole body, not just the head ...I love archaelogy!</td>
+      <td>criticizes the fake news</td>
+      <td>0.419357</td>
+      <td>0.840412</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Hello, I'm from Chile.  The island is called RAPA NUI now.</td>
+      <td>neutral</td>
+      <td>0.589171</td>
+      <td>0.839352</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>Incredible! Who knew they carried a couple of tennis rackets in their waistbands? Or is that a giant pair of scissors?</td>
+      <td>criticizes the fake news</td>
+      <td>0.569738</td>
+      <td>0.836762</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>So amazing the creative of mankind god bless 🙏🙏🙏</td>
+      <td>neutral</td>
+      <td>0.592563</td>
+      <td>0.829485</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Interesting engraving on the back.  Never seen that in any of the books or tv shows.</td>
+      <td>criticizes the fake news</td>
+      <td>0.505695</td>
+      <td>0.825153</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>Layers of soil dug is heaped over centuries. There could be more fossil remainders at the level where whole body of image stands.</td>
+      <td>neutral</td>
+      <td>0.544979</td>
+      <td>0.824839</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>As a teenager read Thor Heyerdahl books.  I knew they had bodies. Also red top knots.  To make the statues the Islanders chopped down all the trees to move the huge blocks of stone. Plus they killed each other.  Read his book Aku Aku.</td>
+      <td>criticizes the fake news</td>
+      <td>0.444685</td>
+      <td>0.819231</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>He has pickle ball paddles in his g-string 😂</td>
+      <td>criticizes the fake news</td>
+      <td>0.531915</td>
+      <td>0.815015</td>
+      <td>Sarcastic tone reinforced by emoji.</td>
+    </tr>
+    <tr>
+      <td>Absolutely beautiful !    Gotta love the history of our planet. !\nPlease don’t let the IDIOTS near it that have destroyed the American history in the form of removal or total destruction.  ——-All without ACCOUNTABILITY.</td>
+      <td>believes the fake news</td>
+      <td>0.495673</td>
+      <td>0.806016</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>theres speculation that a pole shift may have caused the sudden rise in soil levels to bury these statues so perfectly, the 2 mile high tidal wave shifting millions of tons of silt within a few hrs! 1000kph winds as the land mass's shift half way horizontally but the water and air continue to spin with the earths old rotation, everything on the planet gets wiped clean, land reformed, things buried/ part buried... as we see here!  all this within a 24hr period and they say we are well overdue for the next!  the Giant sphinx bares erosion markings around its base where water has come through at an alarming speed and depth!  attributed to a sudden pole shift.</td>
+      <td>criticizes the fake news</td>
+      <td>0.491703</td>
+      <td>0.800196</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Why is it special to suddenly realize that those moais bodies were covered with soil...if you know about basalt rock decaying...turns brown on outside caused by sun and rain...then it falls off the block of volcanic rock as clay and rock chips...then these gradually washed downwards along the mountain slopes in the process mixing with other organic matter...eventually it reaches the hillside standing moais...over hundreds of years it  gradually builds up until it reaches around the statues necks as you see before  digging..are you so stupid as not to realize that without even digging....it seems that you've just got out of the class room and then outside of the high-rise jungles...you are talking about something that is not part of your lives and not your type of culture hence your excitement over a minor aspect of something of not much significance....the is not yours ...it.is.in the people of Te Pito O Te Henua....give them the respect owed to them and their ancestors</td>
+      <td>criticizes the fake news</td>
+      <td>0.597413</td>
+      <td>0.797552</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>When the customer in front at the store insists on paying for groceries with coins.</td>
+      <td>criticizes the fake news</td>
+      <td>0.392785</td>
+      <td>0.797320</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I would imagine that these huge and heavy stone figures have been sinking into the soft ground on Easter island for thousands of years. I'm not sure how old these stone figures really are.</td>
+      <td>neutral</td>
+      <td>0.469632</td>
+      <td>0.797262</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I have been to Easter Island, a most amazing place.</td>
+      <td>neutral</td>
+      <td>0.467856</td>
+      <td>0.797127</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Gobekli Tepe was intentionally buried. The bodies of these Easter Island masterpieces were undoubtedly intentionally buried also. The burial certainly preserved their art work.</td>
+      <td>criticizes the fake news</td>
+      <td>0.436858</td>
+      <td>0.793615</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Really great to see the pics of these amazing stutues. Be safe guys, no side support and very deep vertical cut.</td>
+      <td>neutral</td>
+      <td>0.578171</td>
+      <td>0.792981</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>Amazing it took anyone this long to figure this out.</td>
+      <td>criticizes the fake news</td>
+      <td>0.567122</td>
+      <td>0.792776</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Wahou ! Encore plus impressionnant que ce qu'on connaissait. Magnifique travail de ceux qui ont creusé pour découvrir que les têtes avaient un corps. Magnifique travail aussi du peuple qui a dressé ces belles statues</td>
+      <td>criticizes the fake news</td>
+      <td>0.535815</td>
+      <td>0.788895</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Truly amazing. Our true world mega history slowly is being reveled. Can you imagine what they will show us when the true secrets of the Pyramids and the Spinx are finally relieved. We will someday break the 11k BC wall.</td>
+      <td>neutral</td>
+      <td>0.432639</td>
+      <td>0.786943</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>And if I am not mistaken.that looks like a boombox on its back</td>
+      <td>criticizes the fake news</td>
+      <td>0.456916</td>
+      <td>0.773046</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>And there's a good horse under him... name that quote.</td>
+      <td>neutral</td>
+      <td>0.496408</td>
+      <td>0.770796</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>That IS amazing!</td>
+      <td>criticizes the fake news</td>
+      <td>0.562965</td>
+      <td>0.760850</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>I currently have a Easter Island head replica in my front yard .</td>
+      <td>criticizes the fake news</td>
+      <td>0.422074</td>
+      <td>0.757508</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Wow what a find !!I watched Good morning America when Micheal Strahan was there what a beautiful place and amazing people!</td>
+      <td>criticizes the fake news</td>
+      <td>0.546667</td>
+      <td>0.753580</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>I think the all-time most famous stones were ￼Mick, Keith, Charlie, and Ronnie.</td>
+      <td>neutral</td>
+      <td>0.410527</td>
+      <td>0.752567</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Are those bat-mitten rackets tucked into the back of his belt ??  ; - )</td>
+      <td>criticizes the fake news</td>
+      <td>0.571893</td>
+      <td>0.750773</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Eu sempre achei que tivesse não sei como más sabia.</td>
+      <td>neutral</td>
+      <td>0.448038</td>
+      <td>0.746774</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Thor Heyerdahl excavated a statue in the 1950s and published his findings in his book 'Aku Aku' in 1958 so this isn't a recent discovery.</td>
+      <td>neutral</td>
+      <td>0.426316</td>
+      <td>0.746460</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>And no support for the excavation, no edge protection. I guess safety isn’t an issue on Easter Island.</td>
+      <td>criticizes the fake news</td>
+      <td>0.482892</td>
+      <td>0.740048</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Muy Bacana esas obras de arte antiguas, me parece chévere esa profesión</td>
+      <td>criticizes the fake news</td>
+      <td>0.499151</td>
+      <td>0.737458</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>￼ Noah and the great flood. That’s h￼ow they were ￼ buried!</td>
+      <td>criticizes the fake news</td>
+      <td>0.359118</td>
+      <td>0.731679</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Sa fait des années que je croyais qu'il s'agit de têtes seulement</td>
+      <td>neutral</td>
+      <td>0.579840</td>
+      <td>0.731482</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Judging by the line between above and beneath the soil, I would guess they were deliberately buried. Mystery !</td>
+      <td>criticizes the fake news</td>
+      <td>0.466247</td>
+      <td>0.730925</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Incredible and what an amazing find. Thank you!</td>
+      <td>neutral</td>
+      <td>0.459928</td>
+      <td>0.724819</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I wwuld have to see it with mown eyes before I believe this  Photoshop is excellent</td>
+      <td>criticizes the fake news</td>
+      <td>0.431492</td>
+      <td>0.724580</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Nossa, vai mudar a história e trazer mais curiosidades, se já era difícil  entender, imagina agora !!!!</td>
+      <td>criticizes the fake news</td>
+      <td>0.406994</td>
+      <td>0.722705</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>This was discovered in the 50s. It's strange that it keeps popping up as a new discovery.</td>
+      <td>criticizes the fake news</td>
+      <td>0.415117</td>
+      <td>0.721947</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>The bodies were discovered maaaaany years ago. Strange it keeps popping up as new discovery 🤔</td>
+      <td>criticizes the fake news</td>
+      <td>0.566306</td>
+      <td>0.721066</td>
+      <td>Sarcastic tone reinforced by emoji.</td>
+    </tr>
+    <tr>
+      <td>A lifelong fascination. Great shot. 🎶❤️🎶</td>
+      <td>neutral</td>
+      <td>0.581036</td>
+      <td>0.713291</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>The evidence is probably at the level of the base of statues. Amazing work</td>
+      <td>criticizes the fake news</td>
+      <td>0.490407</td>
+      <td>0.709745</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I wrote about it years ago and I still don't see a forest being planted on Easter Island</td>
+      <td>criticizes the fake news</td>
+      <td>0.455276</td>
+      <td>0.707122</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Il y a du avoir un drôle de changement climatique à l époque</td>
+      <td>criticizes the fake news</td>
+      <td>0.414519</td>
+      <td>0.703665</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+  </tbody>
+</table>
+    </body>
+    </html>
+    

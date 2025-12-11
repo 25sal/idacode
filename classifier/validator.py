@@ -12,12 +12,14 @@ files = glob.glob(path+"/human_annotation/*.csv", )
 distinct_values =  set()
 
 labeled_rows = pd.DataFrame(columns=['prediction','validation'])
-
+labeled_df = pd.DataFrame(columns=['Content','validation'])
 for file in files:
     print(file)
     df = pd.read_csv(file)
     #print(df.head())
     df = df[:40]
+    print(df.columns)
+    labeled_df = pd.concat([labeled_df, df[['Content','validation']]], axis=0, ignore_index=True)
     labeled_rows = pd.concat([labeled_rows, df[['stance','validation']]], ignore_index=True)
     distinct_values.update(df['validation'].unique())
     # print rows where the validation column is nan
@@ -25,6 +27,11 @@ for file in files:
     nan_rows = df[df['validation'].isna()]
     print(nan_rows)
 
+labeled_df.columns = ['text','stance']
+labeled_df.to_csv("data/CulturalDeepfake/human_annotation/combined_labeled_rows.csv", index=False)
+
+
+sys.exit()
 # generate confusion matrix from labeled rows
 confusion_matrix = pd.crosstab(labeled_rows['stance'], labeled_rows['validation'], rownames=['Predicted'], colnames=['Actual'], dropna=False)
 print(confusion_matrix)

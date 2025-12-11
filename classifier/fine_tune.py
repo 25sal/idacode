@@ -8,16 +8,20 @@ from transformers import (
 )
 import torch
 
+import os
+os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
+
+
 # ================================
 # CONFIGURATION
 # ================================
 MODEL_DIR = "./local_bart_mnli"      # modello base (già scaricato)
-DATA_FILE = "labeled_comments.csv"   # CSV con text, stance
+DATA_FILE = "data/CulturalDeepfake/human_annotation/combined_labeled_rows.csv"   # CSV con text, stance
 OUTPUT_DIR = "./stance_finetuned_model"
 EPOCHS = 3
-BATCH_SIZE = 8
+BATCH_SIZE = 1
 LR = 2e-5
-MAX_LEN = 128
+MAX_LEN = 64
 
 # ================================
 # LOAD DATA
@@ -73,15 +77,23 @@ model = AutoModelForSequenceClassification.from_pretrained(
 # ================================
 args = TrainingArguments(
     output_dir=OUTPUT_DIR,
-    evaluation_strategy="epoch",
-    save_strategy="epoch",
+    eval_strategy="steps",
+    save_strategy="steps",
     num_train_epochs=EPOCHS,
     learning_rate=LR,
     per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=BATCH_SIZE,
     logging_steps=50,
     save_total_limit=2,
-    load_best_model_at_end=True
+    load_best_model_at_end=True,
+    
+    optim="adamw_bnb_8bit",
+    # 3. Accumulo gradienti (simula un batch size più grande, es. 1 * 16 = 16)
+    gradient_accumulation_steps=16,
+    # 4. Gradient Checkpointing (CRITICO: scambia memoria con tempo di calcolo)
+    gradient_checkpointing=True,
+    # 5. Precisione mista (dimezza la memoria dei pesi e attivazioni)
+    fp16=True
 )
 
 trainer = Trainer(

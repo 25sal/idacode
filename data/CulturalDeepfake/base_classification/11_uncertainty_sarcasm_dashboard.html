@@ -1,0 +1,600 @@
+
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Uncertainty & Sarcasm Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
+    <script>
+    $(document).ready(function() {
+    $('table.display').DataTable({
+        "pageLength": 10,
+        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+        "order": [[ 2, "asc" ]]
+    });
+    });
+    </script>
+    </head>
+    <body style="font-family: Arial; margin: 30px;">
+    
+    <h1>🧠 Uncertainty & Sarcasm Analysis Report</h1>
+    <p><b>Total comments:</b> 172<br>
+    <b>Uncertain:</b> 115<br>
+    <b>Suspect (sarcastic + uncertain):</b> 71</p>
+
+    <h3>Distribution of Sarcasm Labels</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>sarcasm_label</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>non_irony</th>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>irony</th>
+      <td>37</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3>Correlation between Stance and Sarcasm</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sarcasm_label</th>
+      <th>irony</th>
+      <th>non_irony</th>
+    </tr>
+    <tr>
+      <th>stance</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>believes the fake news</th>
+      <td>6</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>criticizes the fake news</th>
+      <td>21</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>neutral</th>
+      <td>10</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>Interactive Scatter Plot</h2>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.2.0.min.js" integrity="sha256-iZ2u/oU2wf/vDbl/ChcX93WgbBRSBvUO6N413hDz7xM=" crossorigin="anonymous"></script>                <div id="a4fac97c-cb58-4c5f-80c3-bf063b08adbf" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("a4fac97c-cb58-4c5f-80c3-bf063b08adbf")) {                    Plotly.newPlot(                        "a4fac97c-cb58-4c5f-80c3-bf063b08adbf",                        [{"customdata":[["We need a link to the page","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["https:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f574272174_33038144585784723_3076018553183306106_n.jpg?stp=dst-jpg_p206x206_tt6&_nc_cat=111&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=jrcsk2A15a0Q7kNvwHZjE-Z&_nc_oc=AdkLfB0HOWVqBJS8cJfAYMVXnjhbsJSlU8CzqtjIL4BZyv5CEVhH52fGCHHHpqbMjek&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&oh=00_AfiA5D3FiNbECblnVbhIqGprkiMDDFzA8kh6NAOTU5oi1Q&oe=6913F574","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["I particularly love how all these giants and dinosaur-riding humans always seem to descend from high above, boop the ground once and be gone.","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f14828696805627573183?url=https%3A%2F%2Fmedia.tenor.co%2FsOxx6hPTkKwAAAAM%2Fal-bundy-bundy.gif&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s220x166_tt6&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&_nc_oc=AdmO5esa8Zudp5hUo6MpWIgB0h50VjARSXwvsWheSk5k1MtDlC_XWls3A_3SuJvDS34&ccb=13-1&oh=06_Q3-4ARREh-foQn6k5_jXi1pDTsHldcexUgZt2HrywpYeg04g&oe=69100741&_nc_sid=c97757","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f15624044371782216147?url=https%3A%2F%2Fmedia.tenor.com%2FujdF0_57HFYAAAAM%2Fmuddy-mud.gif&fb_obo=1&utld=tenor.com&stp=dst-emg0_q75_s220x140_tt6&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&_nc_oc=Admrr_6VsYb7mXWY8Cp5QWzt2NC1eIiWgsmzyQKqeGz5DsQD-2e0jb63Zi3bdRvKD_Y&ccb=13-1&oh=06_Q3-4ATd1FnbRMBu_SdTgDGimgbzCQOaEw8jhMhjR7cTlJTQO&oe=69100EE0&_nc_sid=c97757","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Ultra Rare. \nOne foot, six toes AND a giant. He was probably albino too.","non_irony","Likely critical or skeptical language."],["I love that the giant took a single step and then hopped into the sea, never to touch land again.","irony","Likely critical or skeptical language."],["Toe prints AND tread marks. That's some fancy footwear.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["The most of the weight would be under the big toe (though the \"big toe\" isn't very a big toe at all lmao). That's the least looking footprint I've seen yet","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["I\u2019ve always wondered why it\u2019s always one single footprint.  Wouldn\u2019t you expect a trail of them?  More than one at the very least?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["The giant only needed to take one step on Earth to nope out back into Giantland","non_irony","Likely critical or skeptical language."],["Amazing after an area has inhabited for thousands of years they just found this sitting perfectly on the surface in 2025!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["https:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft15.5256-10\u002f567593315_1697729220887892_8614568047777495975_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a6c039&_nc_ohc=r8KuRPZRxocQ7kNvwGZvLoq&_nc_oc=Adk97lDKeEqknAr02pynVvQytsLLhoXbXdL7DkA247VcIE6mED5F8ri0IxiZ-HgFwJo&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=rROdZYvfnrmvEXtdf4cyRQ&oh=00_AfhwPrU2JQqN2GChuNuZemTOmvESrWOBWZ-h19R3-g_Llg&oe=69140A5A","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["6 toes.\nMust be from Norfolk.","non_irony","Likely critical or skeptical language."],["With 6 toes lol","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\"Footprint\"? So it took one step and disappeared?","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f11496461443938199633?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2FkUDefs69epsAAAAC%2Fsuikoden-suikoden-2.gif&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s396x396_tt6&_nc_gid=cWDFKIPj9hfUdPzXv79oUg&_nc_oc=Adm2nSFE5d-BVk47amcI9Hu-sjOqx-edEJlpNREGixTQ8Edjsq0UIhpVV0xBG1kI_dY&ccb=13-1&oh=06_Q3-4Act-rFb4OAKvXQ-LdyMIxC6vfCiRC2T8WlXi9PZzg9o8&oe=69100F42&_nc_sid=867500","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f571169860_10162662524462058_820093880033663945_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=106&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=9WlDT0I9TOoQ7kNvwESF4Rk&_nc_oc=AdnJ8vVbLD5IqpCQ_mxH_wNXFc7jHx-G1_YNhT_JOUsdBKbsbApZUaWmjDmZ_ramXr8&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=cWDFKIPj9hfUdPzXv79oUg&oh=00_AfimfqdZ9cdz5i0eGWDsC-sTnW4iifAHYTq8uVtIaQyrGA&oe=6913DEBD","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Can see the grid lines guys","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["An unusual case of \"AI could actually have done that better\"","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Lava?  That looks like sand...","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["SCIENTISTS DIVIDED","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["A giant from Norfolk apparently","irony","Likely critical or skeptical language."],["Definitely not made using a square tamping tool","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Funny its just the one...","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Giant also had six toes, and all the same size.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Lmao the tire tracks on the footprint","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Awww, giants wore barefoot shoes. I bet they had their hair done in a giant man-bun.","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Are those Merrell?  Hey if he hikes like he does im trusting Bigfoot with footwear help.","irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Look at the treads. They must have had barefoot shoes.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["It also left a shoe print, which means we have to assume that Vibram makes shoes for them and haven't been telling us about it.","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["https:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f571422057_3750294321942604_5713956548538246815_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=109&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=9choZh-HxfEQ7kNvwFu-XdQ&_nc_oc=AdkLt7eSYpha873olTcYfEQfi669DJw733IplpuCDYo9-4x1IbbFk8uP8D3Z9zPHERs&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=WzFOHpU5qXQSN6qyJXU8fw&oh=00_Afh1-LKMl1QV39AKKOvHKpxQNSGUc_AD-5uZjCTuH4KpSg&oe=6913F223","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["It's amazing how these giants only ever make one footprint. Maybe the next one is on the moon and then another on mars? \ud83e\udd37\ud83c\udffb\u200d\u2642\ufe0f","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["Lava is the one furthest left and Time is taking the photo.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\"my name is Inigo Montoya.  You k!lled my father.  Prepare to d!e.\"","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Toes are too small","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["SIX toes.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["\ud83d\ude44","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Carved by ai and complete with 6 toes and tire marks. A giant with vibram 6 fingers shoes!","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."],["That\u2019s just a peanut wearing a pearl necklace","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Its clearly sculpted in sand and it has six toes.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Much as I love this group, you've gone too far this time.   I live at the foot of Etna and we all know Typhon is under it, sometimes he likes to come out and you all poke fun.  Too far guys, too far.","irony","Likely critical or skeptical language."],["6 toes that are too small in proportion to the foot. Would have stumbled a lot","non_irony","Ambiguous tone \u2014 sarcastic or humorous uncertainty."]],"hovertemplate":"stance=neutral\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"neutral","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"neutral","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAoEqF4j\u002f\u002f\u002f\u002f\u002ffox7YP\u002f\u002f\u002f\u002fz+0rNg\u002fAAAAoHMu2T8AAACg6F\u002fbP\u002f\u002f\u002f\u002f3\u002fJOdc\u002fAAAAgB0y4T8AAABg5vDYP\u002f\u002f\u002f\u002f\u002f+dc9c\u002f\u002f\u002f\u002f\u002f35Zb2z8AAADg+5DXPwAAAGCTC+E\u002f\u002f\u002f\u002f\u002fX+\u002fo2D8AAABAO2biP\u002f\u002f\u002f\u002fz9pTtc\u002fAAAAgBYD3T8AAABAmjvYPwAAAECSzdc\u002fAAAAQJX92z8AAACAJTPaP\u002f\u002f\u002f\u002f7+NYdk\u002fAAAAoCRP4D\u002f\u002f\u002f\u002f9fu1bXP\u002f\u002f\u002f\u002f9\u002fe1t8\u002fAAAAwPBv2z8AAACA2gHgPwAAAODnQtk\u002fAAAAgGdE2T8AAADgt8zXPwAAAIDfot0\u002fAAAAAH333T\u002f\u002f\u002f\u002f+f1TfaPwAAAMD1dd8\u002fAAAAoOpj4T\u002f\u002f\u002f\u002f\u002f\u002fEsfbP\u002f\u002f\u002f\u002f\u002f9bbN0\u002f\u002f\u002f\u002f\u002f\u002f56I3j8AAADgOCjcP\u002f\u002f\u002f\u002f198oto\u002fAAAAwCQk4T8AAACg8hXfP\u002f\u002f\u002f\u002f1\u002fDMt8\u002f\u002f\u002f\u002f\u002fX7Su2j8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAQBfM7D8AAAAAZrDuPwAAAOCfnOs\u002fAAAAQHKR7j8AAABAtIDuPwAAAICRWOU\u002fAAAAYLiF4T8AAAAAg1rkPwAAAMDUUu4\u002fAAAAgBQE5D8AAAAgaVnmPwAAAEB6Nuc\u002fAAAAgEPI7j8AAAAgAQXrPwAAAAD1LOU\u002fAAAA4Irp6D8AAABgwn7uPwAAAIC9r+4\u002fAAAAILNV4T8AAABgWT3gPwAAAECxm+c\u002fAAAAIOFS4z8AAACASF7jPwAAAMASHOk\u002fAAAAgInM4z8AAACgVALoPwAAAIAnsuU\u002fAAAAAEs56D8AAAAAK9TmPwAAAACnP+o\u002fAAAAQK6e5j8AAACgtK7uPwAAAMDs7+g\u002fAAAAAHUy6j8AAADAImHiPwAAAOD29uI\u002fAAAAALB54D8AAACAre3hPwAAAEDup+g\u002fAAAAgLHl4D8AAAAA4zPmPwAAAODfheM\u002fAAAAQJ306T8="},"yaxis":"y","type":"scatter"},{"customdata":[["That shirtless moron would love this \ud83d\ude02\ud83d\ude02","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Well the giant obviously has skin with square scales.  Dur.  \ud83d\ude01","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["My bet is that it was Zeus","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Yeah, we gotcha Polyphemus!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Invisible giant. Since Etna is an active volcano, this footprint has to be very fresh, or it would have been buried, in a few years, max - since this giant did not show up on any webcam or tourists' or guides' photos, nor any security camera of the Etna funicular for example, he she or they MUST be invisible. M. O. T. I wonder what the giant eats? As Etna is surrounded by farms and towns, it must be fed by humans. Perhaps the restaurants give out their left over pasta?","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Are people truly so gullib...oh. Never mind.","non_irony","Likely critical or skeptical language."],["And it\u2019s just one? Expertly preserved? Perfectly? I assume God himself brought his leg down from the heavens, stamped his foot here, and raised it back up into heaven.\n\nOr we have a one-legged, VERY high- and far-jumping giant.","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["6 toes? Does he happen to have 6 fingers on his right hand?\n\nhttps:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f5270200910233196401?url=https%3A%2F%2Fmedia2.giphy.com%2Fmedia%2Fv1.Y2lkPTk5OWFjZWFjZ2x3cXhyZGhubmM0bnRidnI1aWd0emVrcWNtOTMycjQ1c2ttNzN2bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n%2Fl1J9HZ1tyyIbPxFHG%2Fgiphy.gif&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s396x214_tt6&_nc_gid=WzFOHpU5qXQSN6qyJXU8fw&_nc_oc=AdnKJvfMXpQirmYu8iB6DUMnw40M2ad35KlLDwR5GvrNiPeG8DhvNocIZXd7WQj93gY&ccb=13-1&oh=06_Q3-4AQcbd3HfNrGWEWalqORSenwkl4kAX6L2GhIpS1Afmrpd&oe=6910042D&_nc_sid=c97757","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["One: it has 6 toes\nTwo: you can see the skid steer tracks","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Americans are even more stupid than i thought from the beginning.....","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I think the earlier version with 7 toes is more realistic.\n\nhttps:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f573537227_10163429129614146_7592172992784486724_n.jpg?stp=dst-jpg_p168x128_tt6&_nc_cat=111&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=YfZhFjaRetMQ7kNvwFHI4pc&_nc_oc=AdkstKzNi7LA_gn-lhASn91UlvlRjqG3JT8zTWbXYWnAuZCAFYVvI02EOZ_-cimQrfg&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=_vxwsIyHSVtsb9VSXqz2qg&oh=00_Afheo0BcgzzpJYwbSfGPV2bkdYSRwuICNuEAMeObcSa8RQ&oe=6913DBCD","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Hopping six toed giants.","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["6 toes and what appears to be a tread pattern\n\nhttps:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f9507924719546405445?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2Fv1.Y2lkPTk5OWFjZWFjOGExbHJpMm10cmludGZ1aGs1dnkwbTdhZG00Y3dpcjhibmdwMnMxYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n%2FwzxK9cmYgIPDy%2Fgiphy.gif&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s255x245_tt6&_nc_gid=stFGL4ofxQuP5Pn4dC7OxA&_nc_oc=AdlPTkzlVaxcPf2_BrsoiXeo_n6iMZs1YkjJeXCk8FDVb6TOl2BJgALvvZKZHZJ4RAE&ccb=13-1&oh=06_Q3-4AdoeaNGxp4Mm0OxfGBhGXGR37TVGi5mtatAlElRQaP1U&oe=69101747&_nc_sid=c97757","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["See also:.\"Cursed Monkey Paw Found by Midwestern Family in Moroccan Market, Ignites Interplanetary Furor\" \ud83d\ude44\ud83d\ude06\n\nhttps:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f573311286_25751324041135420_4198781619994559331_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=I8TQoJJ4TyUQ7kNvwGyo-ft&_nc_oc=AdnvBEZCOAECk_xvd5nn48epTozXRDmCRO6VP-PGnqiKFtBz3BByqKN5WZqVObe9KGw&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=QVpAEkyfnepiO4OzJlQWJw&oh=00_AfguNSkDEMW4aOnaiMJwEXrSJ4yHRUH9xfZ_icA1NTRidw&oe=6913E8CD","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["That was probably joke they did and way too many people took it seriously.  Like the tide pod challenge or trying to see the hat man with benedryl. (Please DO NOT DO THAT!!! You CAN overdose on Benadryl! Take only the recommended dose on the package or given to you by your doctor!)","irony","Likely critical or skeptical language."],["Well obv there are giants running around, we just haven't seen them. (See movie Trollhunter)","non_irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."],["Sooooo, a one legged giant that jumped hundreds of feet at a time,,, got it.","irony","Possible ironic endorsement \u2014 sarcasm misinterpreted as belief."]],"hovertemplate":"stance=believes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"believes the fake news","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"believes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAQCAf4j8AAAAggUrXPwAAAMAuftk\u002fAAAAYEw04D\u002f\u002f\u002f\u002f9fw4HXP\u002f\u002f\u002f\u002f3+7nNo\u002fAAAAwGQt3D8AAADAJzPePwAAACDJ4dw\u002fAAAAINOE2z\u002f\u002f\u002f\u002f9fBDLdPwAAAKDe2Nc\u002fAAAAIACG2z8AAADgVTHhPwAAAOAO3uE\u002f\u002f\u002f\u002f\u002f39AS2z8AAACgWR\u002fZPw=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAKqA4T8AAAAgN2rsPwAAAICl5eo\u002fAAAAIIVv6j8AAAAAP6ruPwAAAKCVYOY\u002fAAAAgL9i7T8AAAAgq87uPwAAAAClT+g\u002fAAAAQB4T5D8AAACALpHuPwAAAIDlLeo\u002fAAAAwG\u002fC7j8AAADgEF3uPwAAAKC1H+U\u002fAAAAADgb6j8AAACg\u002fk\u002fsPw=="},"yaxis":"y","type":"scatter"},{"customdata":[["Yep, if that\u2019s not real it\u2019s definitely what I\u2019d call a perfect illusion.","non_irony","Likely critical or skeptical language."],["Bro this is the most flat footed giant I ever seen. Do he got a giant podiatrist?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Giants were renowned for their terrible arch and subsequent footie pains.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Why, that's the footprint of the CEO of Antifa!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["1 foot print? Did he hop on the foot and fly away?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Doesn't look fake at all!","non_irony","Likely critical or skeptical language."],["That is funny - respect to the creators of that.","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Six toes!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["ok, but is it made with peach cream and filling?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["https:\u002f\u002fexternal-fco2-1.xx.fbcdn.net\u002femg1\u002fv\u002ft13\u002f487042408393866033?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2F3ySbY2xHpBMAAAAC%2Faliens.gif&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s128x128_tt6&_nc_gid=8QRomaGbsFea3pcBx_gJ_w&_nc_oc=Adk4_VDY4Jei1fWv9v-1IzUwzmCgxYN4BpvG_jCLX5Mizq-Aa74HMYHaudlgBvpnMIw&ccb=13-1&oh=06_Q3-4ARmO6PNtNLP4_WzPEEPFk5RIjr290Ag2TLKBF0C1KEl2&oe=690FED4A&_nc_sid=c97757","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Open toed boots at that lol","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I had a friend who was a regular giant human. He spent a lot of time with another criminal friend. They worked as a team in the campgrounds of the camping areas of California. He was \"Big Foot\"!  A very intimidating person who terrorized many, without the costuming. Size 16 feet. Big Foot would enter the campsite. The people would run. He and his friend cleaned out the campsite of what they needed. \"A real sighting\" he is on film as well!","irony","Likely critical or skeptical language."],["Fake.","non_irony","Likely critical or skeptical language."],["Giant apparently wearing shoes with a definite tread pattern too, amazing they make trainers in that size","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["We're all doooomed \ud83d\ude33","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["But the most important question is: are scientists baffled?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["\"a perfect illusion\" \ud83d\ude02","irony","Sarcastic tone reinforced by emoji."],["Those are, in fact, the only two possibilities. There is no way people created it.","non_irony","Likely critical or skeptical language."],["Somebody\u2019s grandfather is totally believing this.","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["fake","non_irony","Likely critical or skeptical language."],["Waffle stomper feet!","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Every day's a school day , I never knew giants had 6 toes! \ud83e\udd23","irony","Sarcastic tone reinforced by emoji."],["If AI ever learns how to draw anything, all of this humor will become tragic.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Ew giants wear those creepy toe shoes","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Or mnore bad Ai.","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Don\u2019t you know? Giants invented those wading shoes with the toes.","irony","Likely critical or skeptical language."],["Just one? Was it hopping?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["\u201cScientists\u201d are divided.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Just one? Did they hop everywhere?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Scientists are baffled at people\u2019s inability to see AI or their willingness to believe anything.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Ah yes. A skyscraper sized humanoid that dwells in relatively open terrain, that we have never managed to glimpse. \ud83e\udd14","non_irony","Likely critical or skeptical language."],["So there were one legged giants back then? With 6 toes?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["My name is Inigo Montoya and I am looking for the six toed giant that killed my father","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["It\u2019s \ud83d\udca9","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Too many toes. Clearly artificial","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["Wow I didn't know the bottom of giants foot had tire prints","irony","Likely critical or skeptical language."],["The people who made it didn't bring a broom to sweep over the \"treads\" left by the garden tamper?\n\nNot AI.  That artist worked a LOT to make that work.  Very nice work as well; it will stay a while in fine pumice.  \n\nBut a nice, stiff broom would have evened out the tamper marks and mimicked skin lines.  Perhaps they weren't finished yet? \n\nAt any rate, impressive work! That took more than an hour or two!","irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["Well that\u2019s the dumbest thing I have seen today.","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["And a ball of its foot on both sides","non_irony","Ambiguous or uncertain expression \u2014 may need manual review."],["I bet it had the Nike brand on the sole","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["A quick image search reveals.....\n\nhttps:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f574114404_10163429124804146_6422095419443422828_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=107&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=Je98a5utzIkQ7kNvwEpGWur&_nc_oc=AdkR-OABkWKYOXWRl__wVuumf4MroUYdRRRl1G_rZVMxJaq_hCrAUX_R9jFEOw4W_H0&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=_vxwsIyHSVtsb9VSXqz2qg&oh=00_AfhInPVcPhsj0lbbR1fsoUXGBC3FMKNJeKmfTJ6XTAFVeA&oe=6913F1DE","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["And even more extraordinary it appears that the giant has one single foot and is capable of hopping over an entire country","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Good thing they\u2019ve got 6 toes with that height they\u2019d need it to balance \ud83e\udd26\u200d\u2642\ufe0f","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["\"Hilariously shitty sand sculpture entry sparks zero debate and contestant is disqualified for copyright infringement of Bigfoot\"","irony","Ambiguous or uncertain expression \u2014 may need manual review."],["Not since mitosis have scientists been more divided.","irony","Likely critical or skeptical language."],["Remember, 1\u002f1,000,000 is still division. \ud83e\udd37","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["And it has 6 toes \ud83e\udd23","non_irony","Sarcastic tone reinforced by emoji."],["Do you expect giants to go barefoot?","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["They\u2019re not even trying anymore","non_irony","Likely critical or skeptical language."],["You know what is absolute proof ? The square-cube law and how it relates to the dimensions and physical requirements of such a massive humanoid. Very clearly shows it is not an option.","non_irony","Sarcastic questioning \u2014 likely expressing doubt or disbelief."],["https:\u002f\u002fscontent-fco2-1.xx.fbcdn.net\u002fv\u002ft39.30808-6\u002f572277519_10163596159614736_4970879910208867703_n.jpg?stp=dst-jpg_p100x100_tt6&_nc_cat=109&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=V-8LxdIRDzcQ7kNvwGnKOLN&_nc_oc=Adn8BgZv3lhA1hT-ODAnKyw4oB2O9iBIDW9u19b-zSbIcdMGdJ_kFmbAsuGyG69PyiU&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=0hFrUltP2q-axuQ3GtzdPw&oh=00_AfhGWWCGwBaGV0jJ-mAfOCOam8E8qUhIHfR1J9JRagAJSA&oe=6913DE30","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["with six toes?","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["I mean they are not even look at the foot the people in the picture","non_irony","Likely critical or skeptical language."],["6 toes too. its a miracle i tells you","non_irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."],["He just stepped on a Lilliputian Neolithic village. But mainstream archeology is covering up liliputian history","irony","Likely sarcastic criticism \u2014 ironic disbelief or mockery of the fake news."]],"hovertemplate":"stance=criticizes the fake news\u003cbr\u003econfidence=%{x}\u003cbr\u003esarcasm_score=%{y}\u003cbr\u003eContent=%{customdata[0]}\u003cbr\u003esarcasm_label=%{customdata[1]}\u003cbr\u003eexplanation=%{customdata[2]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"criticizes the fake news","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"criticizes the fake news","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAo94D8AAABgAsngPwAAAMAq+ds\u002fAAAAQJia4j8AAADgI0zgPwAAAGDFTOE\u002fAAAAwC7K1j\u002f\u002f\u002f\u002f9fthvZPwAAAMDnxN0\u002f\u002f\u002f\u002f\u002fH7SA1z8AAADg9DzWP\u002f\u002f\u002f\u002fx+q+dk\u002fAAAAoKUF4j\u002f\u002f\u002f\u002f9\u002fMkXePwAAAEBISeE\u002fAAAAoD6\u002f4j8AAABg9qzhPwAAAMB5t+E\u002fAAAAIF4N4j8AAABAe6vhPwAAAAAo\u002fOE\u002fAAAAgKrp4D8AAADAi+jiPwAAAMCg7uA\u002f\u002f\u002f\u002f\u002ff7VI2T\u002f\u002f\u002f\u002f+\u002fzvnZPwAAAMAm8ts\u002f\u002f\u002f\u002f\u002fH12b3j8AAADgu1DhPwAAAOAMZeI\u002f\u002f\u002f\u002f\u002f3woJ2z8AAADgsbTePwAAAIBEFeM\u002f\u002f\u002f\u002f\u002fPyeh2D8AAACg92bePwAAAGBnouE\u002fAAAAAIgV3D8AAAAgfvDiPwAAACBgXOE\u002fAAAAIMOe2D8AAABA4FjXPwAAACACI90\u002fAAAAYImJ3T\u002f\u002f\u002f\u002f\u002f\u002f0pXfPwAAAEDo2+I\u002f\u002f\u002f\u002f\u002fv1gb3j8AAADg2z3gPwAAAADDIOI\u002fAAAAoBJ64j8AAAAAoh7jP\u002f\u002f\u002f\u002f19BWNc\u002fAAAAYN4l2T8AAACgMnrhP\u002f\u002f\u002f\u002fx\u002f1dts\u002f\u002f\u002f\u002f\u002fP\u002fxT2j8="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAKEN6D8AAACAPVPtPwAAAOAsRek\u002fAAAAIDzG5T8AAABAXMXuPwAAAMA3Buo\u002fAAAAYPbV5j8AAACgGFviPwAAAMDigO4\u002fAAAAQAue7j8AAABAdJHlPwAAAEBh4uA\u002fAAAAYAtT4T8AAADgosDtPwAAAKADMOc\u002fAAAAYIhf7T8AAACAaVnlPwAAAAC6YeY\u002fAAAAQDqn4z8AAACAtxXiPwAAAABcVOk\u002fAAAAwDFS6z8AAAAAZCDlPwAAAODeXuk\u002fAAAAIOwC6D8AAAAABAThPwAAAADg5u4\u002fAAAAIPCQ4z8AAABA9ljuPwAAAGDI2OY\u002fAAAAIMlj4j8AAACAPmbjPwAAAMDxv+k\u002fAAAAYJL25D8AAADgWkfsPwAAAIC5kOk\u002fAAAAYD5b5T8AAAAAgTrlPwAAAIDH5Ok\u002fAAAAQCQI6D8AAADA0pTuPwAAAKCNAOY\u002fAAAAAARf6D8AAADAYljlPwAAAOCMU+Y\u002fAAAAQKLW6z8AAADAo8HlPwAAAKAjluw\u002fAAAAIIbU6T8AAADg1C\u002frPwAAAICuqO4\u002fAAAAoIVR6T8AAAAgHebrPwAAAGAhiOk\u002fAAAAICAR6z8="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"confidence"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"sarcasm_score"}},"legend":{"title":{"text":"stance"},"tracegroupgap":0},"title":{"text":"Sarcasm vs Model Confidence (Uncertain Comments)"},"shapes":[{"line":{"color":"red","dash":"dash"},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":0.7,"y1":0.7,"yref":"y"},{"line":{"color":"orange","dash":"dash"},"type":"line","x0":0.6,"x1":0.6,"xref":"x","y0":0,"y1":1,"yref":"y domain"}],"annotations":[{"showarrow":false,"text":"Sarcasm Threshold","x":1,"xanchor":"right","xref":"x domain","y":0.7,"yanchor":"bottom","yref":"y"},{"showarrow":false,"text":"Confidence Threshold","x":0.6,"xanchor":"left","xref":"x","y":1,"yanchor":"top","yref":"y domain"}]},                        {"responsive": true}                    )                };            </script>        </div>
+    
+    <h3>Suspect Comments (with explanations)</h3>
+    <table border="1" class="dataframe display compact">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Content</th>
+      <th>stance</th>
+      <th>confidence</th>
+      <th>sarcasm_score</th>
+      <th>explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Just one? Was it hopping?</td>
+      <td>criticizes the fake news</td>
+      <td>0.436655</td>
+      <td>0.965683</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>6 toes? Does he happen to have 6 fingers on his right hand?\n\nhttps://external-fco2-1.xx.fbcdn.net/emg1/v/t13/5270200910233196401?url=https%3A%2F%2Fmedia2.giphy.com%2Fmedia%2Fv1.Y2lkPTk5OWFjZWFjZ2x3cXhyZGhubmM0bnRidnI1aWd0emVrcWNtOTMycjQ1c2ttNzN2bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n%2Fl1J9HZ1tyyIbPxFHG%2Fgiphy.gif&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s396x214_tt6&_nc_gid=WzFOHpU5qXQSN6qyJXU8fw&_nc_oc=AdnKJvfMXpQirmYu8iB6DUMnw40M2ad35KlLDwR5GvrNiPeG8DhvNocIZXd7WQj93gY&ccb=13-1&oh=06_Q3-4AQcbd3HfNrGWEWalqORSenwkl4kAX6L2GhIpS1Afmrpd&oe=6910042D&_nc_sid=c97757</td>
+      <td>believes the fake news</td>
+      <td>0.471872</td>
+      <td>0.962728</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>https://scontent-fco2-1.xx.fbcdn.net/v/t15.5256-10/567593315_1697729220887892_8614568047777495975_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a6c039&_nc_ohc=r8KuRPZRxocQ7kNvwGZvLoq&_nc_oc=Adk97lDKeEqknAr02pynVvQytsLLhoXbXdL7DkA247VcIE6mED5F8ri0IxiZ-HgFwJo&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=rROdZYvfnrmvEXtdf4cyRQ&oh=00_AfhwPrU2JQqN2GChuNuZemTOmvESrWOBWZ-h19R3-g_Llg&oe=69140A5A</td>
+      <td>neutral</td>
+      <td>0.389217</td>
+      <td>0.961946</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>1 foot print? Did he hop on the foot and fly away?</td>
+      <td>criticizes the fake news</td>
+      <td>0.509294</td>
+      <td>0.961592</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>6 toes and what appears to be a tread pattern\n\nhttps://external-fco2-1.xx.fbcdn.net/emg1/v/t13/9507924719546405445?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2Fv1.Y2lkPTk5OWFjZWFjOGExbHJpMm10cmludGZ1aGs1dnkwbTdhZG00Y3dpcjhibmdwMnMxYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n%2FwzxK9cmYgIPDy%2Fgiphy.gif&fb_obo=1&utld=giphy.com&stp=dst-emg0_q75_s255x245_tt6&_nc_gid=stFGL4ofxQuP5Pn4dC7OxA&_nc_oc=AdlPTkzlVaxcPf2_BrsoiXeo_n6iMZs1YkjJeXCk8FDVb6TOl2BJgALvvZKZHZJ4RAE&ccb=13-1&oh=06_Q3-4AdoeaNGxp4Mm0OxfGBhGXGR37TVGi5mtatAlElRQaP1U&oe=69101747&_nc_sid=c97757</td>
+      <td>believes the fake news</td>
+      <td>0.430054</td>
+      <td>0.961235</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/574272174_33038144585784723_3076018553183306106_n.jpg?stp=dst-jpg_p206x206_tt6&_nc_cat=111&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=jrcsk2A15a0Q7kNvwHZjE-Z&_nc_oc=AdkLfB0HOWVqBJS8cJfAYMVXnjhbsJSlU8CzqtjIL4BZyv5CEVhH52fGCHHHpqbMjek&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&oh=00_AfiA5D3FiNbECblnVbhIqGprkiMDDFzA8kh6NAOTU5oi1Q&oe=6913F574</td>
+      <td>neutral</td>
+      <td>0.376870</td>
+      <td>0.959033</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/571169860_10162662524462058_820093880033663945_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=106&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=9WlDT0I9TOoQ7kNvwESF4Rk&_nc_oc=AdnJ8vVbLD5IqpCQ_mxH_wNXFc7jHx-G1_YNhT_JOUsdBKbsbApZUaWmjDmZ_ramXr8&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=cWDFKIPj9hfUdPzXv79oUg&oh=00_AfimfqdZ9cdz5i0eGWDsC-sTnW4iifAHYTq8uVtIaQyrGA&oe=6913DEBD</td>
+      <td>neutral</td>
+      <td>0.371922</td>
+      <td>0.958953</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/571422057_3750294321942604_5713956548538246815_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=109&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=9choZh-HxfEQ7kNvwFu-XdQ&_nc_oc=AdkLt7eSYpha873olTcYfEQfi669DJw733IplpuCDYo9-4x1IbbFk8uP8D3Z9zPHERs&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=WzFOHpU5qXQSN6qyJXU8fw&oh=00_Afh1-LKMl1QV39AKKOvHKpxQNSGUc_AD-5uZjCTuH4KpSg&oe=6913F223</td>
+      <td>neutral</td>
+      <td>0.409658</td>
+      <td>0.958826</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Invisible giant. Since Etna is an active volcano, this footprint has to be very fresh, or it would have been buried, in a few years, max - since this giant did not show up on any webcam or tourists' or guides' photos, nor any security camera of the Etna funicular for example, he she or they MUST be invisible. M. O. T. I wonder what the giant eats? As Etna is surrounded by farms and towns, it must be fed by humans. Perhaps the restaurants give out their left over pasta?</td>
+      <td>believes the fake news</td>
+      <td>0.367295</td>
+      <td>0.958282</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>https://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/572277519_10163596159614736_4970879910208867703_n.jpg?stp=dst-jpg_p100x100_tt6&_nc_cat=109&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=V-8LxdIRDzcQ7kNvwGnKOLN&_nc_oc=Adn8BgZv3lhA1hT-ODAnKyw4oB2O9iBIDW9u19b-zSbIcdMGdJ_kFmbAsuGyG69PyiU&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=0hFrUltP2q-axuQ3GtzdPw&oh=00_AfhGWWCGwBaGV0jJ-mAfOCOam8E8qUhIHfR1J9JRagAJSA&oe=6913DE30</td>
+      <td>criticizes the fake news</td>
+      <td>0.364762</td>
+      <td>0.958091</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>https://external-fco2-1.xx.fbcdn.net/emg1/v/t13/487042408393866033?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2F3ySbY2xHpBMAAAAC%2Faliens.gif&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s128x128_tt6&_nc_gid=8QRomaGbsFea3pcBx_gJ_w&_nc_oc=Adk4_VDY4Jei1fWv9v-1IzUwzmCgxYN4BpvG_jCLX5Mizq-Aa74HMYHaudlgBvpnMIw&ccb=13-1&oh=06_Q3-4ARmO6PNtNLP4_WzPEEPFk5RIjr290Ag2TLKBF0C1KEl2&oe=690FED4A&_nc_sid=c97757</td>
+      <td>criticizes the fake news</td>
+      <td>0.367230</td>
+      <td>0.956792</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>A quick image search reveals.....\n\nhttps://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/574114404_10163429124804146_6422095419443422828_n.jpg?stp=dst-jpg_s261x260_tt6&_nc_cat=107&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=Je98a5utzIkQ7kNvwEpGWur&_nc_oc=AdkR-OABkWKYOXWRl__wVuumf4MroUYdRRRl1G_rZVMxJaq_hCrAUX_R9jFEOw4W_H0&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=_vxwsIyHSVtsb9VSXqz2qg&oh=00_AfhInPVcPhsj0lbbR1fsoUXGBC3FMKNJeKmfTJ6XTAFVeA&oe=6913F1DE</td>
+      <td>criticizes the fake news</td>
+      <td>0.364800</td>
+      <td>0.955667</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>https://external-fco2-1.xx.fbcdn.net/emg1/v/t13/14828696805627573183?url=https%3A%2F%2Fmedia.tenor.co%2FsOxx6hPTkKwAAAAM%2Fal-bundy-bundy.gif&fb_obo=1&utld=tenor.co&stp=dst-emg0_q75_s220x166_tt6&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&_nc_oc=AdmO5esa8Zudp5hUo6MpWIgB0h50VjARSXwvsWheSk5k1MtDlC_XWls3A_3SuJvDS34&ccb=13-1&oh=06_Q3-4ARREh-foQn6k5_jXi1pDTsHldcexUgZt2HrywpYeg04g&oe=69100741&_nc_sid=c97757</td>
+      <td>neutral</td>
+      <td>0.393460</td>
+      <td>0.955255</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>I think the earlier version with 7 toes is more realistic.\n\nhttps://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/573537227_10163429129614146_7592172992784486724_n.jpg?stp=dst-jpg_p168x128_tt6&_nc_cat=111&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=YfZhFjaRetMQ7kNvwFHI4pc&_nc_oc=AdkstKzNi7LA_gn-lhASn91UlvlRjqG3JT8zTWbXYWnAuZCAFYVvI02EOZ_-cimQrfg&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=_vxwsIyHSVtsb9VSXqz2qg&oh=00_Afheo0BcgzzpJYwbSfGPV2bkdYSRwuICNuEAMeObcSa8RQ&oe=6913DBCD</td>
+      <td>believes the fake news</td>
+      <td>0.456178</td>
+      <td>0.955222</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>ok, but is it made with peach cream and filling?</td>
+      <td>criticizes the fake news</td>
+      <td>0.465143</td>
+      <td>0.953233</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>https://external-fco2-1.xx.fbcdn.net/emg1/v/t13/15624044371782216147?url=https%3A%2F%2Fmedia.tenor.com%2FujdF0_57HFYAAAAM%2Fmuddy-mud.gif&fb_obo=1&utld=tenor.com&stp=dst-emg0_q75_s220x140_tt6&_nc_gid=0hR7JfaQ8dsODmIxmWZoMg&_nc_oc=Admrr_6VsYb7mXWY8Cp5QWzt2NC1eIiWgsmzyQKqeGz5DsQD-2e0jb63Zi3bdRvKD_Y&ccb=13-1&oh=06_Q3-4ATd1FnbRMBu_SdTgDGimgbzCQOaEw8jhMhjR7cTlJTQO&oe=69100EE0&_nc_sid=c97757</td>
+      <td>neutral</td>
+      <td>0.427729</td>
+      <td>0.953211</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>https://external-fco2-1.xx.fbcdn.net/emg1/v/t13/11496461443938199633?url=https%3A%2F%2Fmedia1.tenor.co%2Fm%2FkUDefs69epsAAAAC%2Fsuikoden-suikoden-2.gif&fb_obo=1&utld=tenor.co&stp=dst-jpg_flffffff_q75_s396x396_tt6&_nc_gid=cWDFKIPj9hfUdPzXv79oUg&_nc_oc=Adm2nSFE5d-BVk47amcI9Hu-sjOqx-edEJlpNREGixTQ8Edjsq0UIhpVV0xBG1kI_dY&ccb=13-1&oh=06_Q3-4Act-rFb4OAKvXQ-LdyMIxC6vfCiRC2T8WlXi9PZzg9o8&oe=69100F42&_nc_sid=867500</td>
+      <td>neutral</td>
+      <td>0.378638</td>
+      <td>0.952974</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>See also:."Cursed Monkey Paw Found by Midwestern Family in Moroccan Market, Ignites Interplanetary Furor" 🙄😆\n\nhttps://scontent-fco2-1.xx.fbcdn.net/v/t39.30808-6/573311286_25751324041135420_4198781619994559331_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=bd9a62&_nc_ohc=I8TQoJJ4TyUQ7kNvwGyo-ft&_nc_oc=AdnvBEZCOAECk_xvd5nn48epTozXRDmCRO6VP-PGnqiKFtBz3BByqKN5WZqVObe9KGw&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=QVpAEkyfnepiO4OzJlQWJw&oh=00_AfguNSkDEMW4aOnaiMJwEXrSJ4yHRUH9xfZ_icA1NTRidw&oe=6913E8CD</td>
+      <td>believes the fake news</td>
+      <td>0.537272</td>
+      <td>0.948861</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Just one? Did they hop everywhere?</td>
+      <td>criticizes the fake news</td>
+      <td>0.541105</td>
+      <td>0.948360</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>The most of the weight would be under the big toe (though the "big toe" isn't very a big toe at all lmao). That's the least looking footprint I've seen yet</td>
+      <td>neutral</td>
+      <td>0.366432</td>
+      <td>0.947611</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Giant apparently wearing shoes with a definite tread pattern too, amazing they make trainers in that size</td>
+      <td>criticizes the fake news</td>
+      <td>0.472973</td>
+      <td>0.929765</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>And it’s just one? Expertly preserved? Perfectly? I assume God himself brought his leg down from the heavens, stamped his foot here, and raised it back up into heaven.\n\nOr we have a one-legged, VERY high- and far-jumping giant.</td>
+      <td>believes the fake news</td>
+      <td>0.440271</td>
+      <td>0.918304</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>But the most important question is: are scientists baffled?</td>
+      <td>criticizes the fake news</td>
+      <td>0.585845</td>
+      <td>0.917912</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Bro this is the most flat footed giant I ever seen. Do he got a giant podiatrist?</td>
+      <td>criticizes the fake news</td>
+      <td>0.524537</td>
+      <td>0.916411</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>We need a link to the page</td>
+      <td>neutral</td>
+      <td>0.578771</td>
+      <td>0.899913</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Do you expect giants to go barefoot?</td>
+      <td>criticizes the fake news</td>
+      <td>0.566499</td>
+      <td>0.893328</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>Well the giant obviously has skin with square scales.  Dur.  😁</td>
+      <td>believes the fake news</td>
+      <td>0.363922</td>
+      <td>0.887966</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Sooooo, a one legged giant that jumped hundreds of feet at a time,,, got it.</td>
+      <td>believes the fake news</td>
+      <td>0.392538</td>
+      <td>0.884765</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Too many toes. Clearly artificial</td>
+      <td>criticizes the fake news</td>
+      <td>0.475035</td>
+      <td>0.883710</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I mean they are not even look at the foot the people in the picture</td>
+      <td>criticizes the fake news</td>
+      <td>0.546167</td>
+      <td>0.871840</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>Remember, 1/1,000,000 is still division. 🤷</td>
+      <td>criticizes the fake news</td>
+      <td>0.470419</td>
+      <td>0.869950</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>I particularly love how all these giants and dinosaur-riding humans always seem to descend from high above, boop the ground once and be gone.</td>
+      <td>neutral</td>
+      <td>0.385541</td>
+      <td>0.862869</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Every day's a school day , I never knew giants had 6 toes! 🤣</td>
+      <td>criticizes the fake news</td>
+      <td>0.528524</td>
+      <td>0.853783</td>
+      <td>Sarcastic tone reinforced by emoji.</td>
+    </tr>
+    <tr>
+      <td>You know what is absolute proof ? The square-cube law and how it relates to the dimensions and physical requirements of such a massive humanoid. Very clearly shows it is not an option.</td>
+      <td>criticizes the fake news</td>
+      <td>0.597489</td>
+      <td>0.849589</td>
+      <td>Sarcastic questioning — likely expressing doubt or disbelief.</td>
+    </tr>
+    <tr>
+      <td>He just stepped on a Lilliputian Neolithic village. But mainstream archeology is covering up liliputian history</td>
+      <td>criticizes the fake news</td>
+      <td>0.411376</td>
+      <td>0.845841</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>6 toes.\nMust be from Norfolk.</td>
+      <td>neutral</td>
+      <td>0.574979</td>
+      <td>0.844361</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>My bet is that it was Zeus</td>
+      <td>believes the fake news</td>
+      <td>0.398327</td>
+      <td>0.840533</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Yeah, we gotcha Polyphemus!</td>
+      <td>believes the fake news</td>
+      <td>0.506384</td>
+      <td>0.826113</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Look at the treads. They must have had barefoot shoes.</td>
+      <td>neutral</td>
+      <td>0.463066</td>
+      <td>0.820270</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Lava is the one furthest left and Time is taking the photo.</td>
+      <td>neutral</td>
+      <td>0.543447</td>
+      <td>0.818659</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Hopping six toed giants.</td>
+      <td>believes the fake news</td>
+      <td>0.372612</td>
+      <td>0.818103</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Well obv there are giants running around, we just haven't seen them. (See movie Trollhunter)</td>
+      <td>believes the fake news</td>
+      <td>0.423023</td>
+      <td>0.815823</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Doesn't look fake at all!</td>
+      <td>criticizes the fake news</td>
+      <td>0.540621</td>
+      <td>0.813259</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>6 toes that are too small in proportion to the foot. Would have stumbled a lot</td>
+      <td>neutral</td>
+      <td>0.416913</td>
+      <td>0.811110</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>And a ball of its foot on both sides</td>
+      <td>criticizes the fake news</td>
+      <td>0.542526</td>
+      <td>0.809177</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>They’re not even trying anymore</td>
+      <td>criticizes the fake news</td>
+      <td>0.577401</td>
+      <td>0.807193</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>My name is Inigo Montoya and I am looking for the six toed giant that killed my father</td>
+      <td>criticizes the fake news</td>
+      <td>0.596346</td>
+      <td>0.804681</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Wow I didn't know the bottom of giants foot had tire prints</td>
+      <td>criticizes the fake news</td>
+      <td>0.551075</td>
+      <td>0.798917</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>6 toes too. its a miracle i tells you</td>
+      <td>criticizes the fake news</td>
+      <td>0.429136</td>
+      <td>0.797867</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Ew giants wear those creepy toe shoes</td>
+      <td>criticizes the fake news</td>
+      <td>0.529129</td>
+      <td>0.792831</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Waffle stomper feet!</td>
+      <td>criticizes the fake news</td>
+      <td>0.562031</td>
+      <td>0.791548</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>with six toes?</td>
+      <td>criticizes the fake news</td>
+      <td>0.392936</td>
+      <td>0.791201</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Giants were renowned for their terrible arch and subsequent footie pains.</td>
+      <td>criticizes the fake news</td>
+      <td>0.437083</td>
+      <td>0.789694</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Definitely not made using a square tamping tool</td>
+      <td>neutral</td>
+      <td>0.497490</td>
+      <td>0.784677</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>It's amazing how these giants only ever make one footprint. Maybe the next one is on the moon and then another on mars? 🤷🏻‍♂️</td>
+      <td>neutral</td>
+      <td>0.491575</td>
+      <td>0.779288</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>"Footprint"? So it took one step and disappeared?</td>
+      <td>neutral</td>
+      <td>0.453313</td>
+      <td>0.778509</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Carved by ai and complete with 6 toes and tire marks. A giant with vibram 6 fingers shoes!</td>
+      <td>neutral</td>
+      <td>0.416167</td>
+      <td>0.770499</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Good thing they’ve got 6 toes with that height they’d need it to balance 🤦‍♂️</td>
+      <td>criticizes the fake news</td>
+      <td>0.461520</td>
+      <td>0.761599</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>One: it has 6 toes\nTwo: you can see the skid steer tracks</td>
+      <td>believes the fake news</td>
+      <td>0.451281</td>
+      <td>0.759722</td>
+      <td>Possible ironic endorsement — sarcasm misinterpreted as belief.</td>
+    </tr>
+    <tr>
+      <td>Awww, giants wore barefoot shoes. I bet they had their hair done in a giant man-bun.</td>
+      <td>neutral</td>
+      <td>0.394800</td>
+      <td>0.756994</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Yep, if that’s not real it’s definitely what I’d call a perfect illusion.</td>
+      <td>criticizes the fake news</td>
+      <td>0.507451</td>
+      <td>0.751664</td>
+      <td>Likely critical or skeptical language.</td>
+    </tr>
+    <tr>
+      <td>I bet it had the Nike brand on the sole</td>
+      <td>criticizes the fake news</td>
+      <td>0.384690</td>
+      <td>0.750994</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Or mnore bad Ai.</td>
+      <td>criticizes the fake news</td>
+      <td>0.395063</td>
+      <td>0.750357</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Giant also had six toes, and all the same size.</td>
+      <td>neutral</td>
+      <td>0.500226</td>
+      <td>0.750284</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Lava?  That looks like sand...</td>
+      <td>neutral</td>
+      <td>0.396579</td>
+      <td>0.737755</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>Amazing after an area has inhabited for thousands of years they just found this sitting perfectly on the surface in 2025!</td>
+      <td>neutral</td>
+      <td>0.532663</td>
+      <td>0.725400</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>We're all doooomed 😳</td>
+      <td>criticizes the fake news</td>
+      <td>0.540196</td>
+      <td>0.724611</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>Scientists are baffled at people’s inability to see AI or their willingness to believe anything.</td>
+      <td>criticizes the fake news</td>
+      <td>0.574835</td>
+      <td>0.713963</td>
+      <td>Ambiguous or uncertain expression — may need manual review.</td>
+    </tr>
+    <tr>
+      <td>That is funny - respect to the creators of that.</td>
+      <td>criticizes the fake news</td>
+      <td>0.356090</td>
+      <td>0.713618</td>
+      <td>Likely sarcastic criticism — ironic disbelief or mockery of the fake news.</td>
+    </tr>
+    <tr>
+      <td>Are those Merrell?  Hey if he hikes like he does im trusting Bigfoot with footwear help.</td>
+      <td>neutral</td>
+      <td>0.371870</td>
+      <td>0.713399</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+    <tr>
+      <td>It also left a shoe print, which means we have to assume that Vibram makes shoes for them and haven't been telling us about it.</td>
+      <td>neutral</td>
+      <td>0.468230</td>
+      <td>0.706870</td>
+      <td>Ambiguous tone — sarcastic or humorous uncertainty.</td>
+    </tr>
+  </tbody>
+</table>
+    </body>
+    </html>
+    
