@@ -74,7 +74,6 @@ training_args = TrainingArguments(
     num_train_epochs=5,                   # Puoi fare più epoche velocemente
     logging_steps=50,
     eval_strategy="steps",                # Ora puoi valutare durante il training
-    eval_strategy="steps",          # (Retrocompatibilità se serve)
     save_strategy="steps",
     load_best_model_at_end=True,
     optim="adamw_torch",                  # Torna all'ottimizzatore standard (più veloce di bnb)
@@ -193,13 +192,23 @@ tokenized_datasets.set_format("torch")
 
 
 # === 5. AVVIO ===
+# 1. Split del dataset (se hai un dataset unico)
+# Riserva il 10% o 20% per la validazione
+dataset_split = tokenized_datasets.train_test_split(test_size=0.1)
+train_ds = dataset_split["train"]
+eval_ds = dataset_split["test"]
+
+# 2. Inizializzazione Trainer corretta
 trainer = DistillationTrainer(
     teacher_model=teacher_model,
     model=student_model,
     args=training_args,
-    train_dataset=tokenized_datasets, # Inserisci il tuo dataset tokenizzato qui
+    train_dataset=train_ds,      # Dataset di training
+    eval_dataset=eval_ds,        # <--- AGGIUNGI QUESTO
     tokenizer=tokenizer,
 )
+# 3. Avvio del training
+print("Inizio del training con distillazione...")
 
 trainer.train()
 # Salva il modello distillato
