@@ -14,24 +14,23 @@ distinct_values =  set()
 labeled_rows = pd.DataFrame(columns=['prediction','validation'])
 labeled_df = pd.DataFrame(columns=['Content','validation'])
 for file in files:
-    print(file)
+    # print(file)
     df = pd.read_csv(file)
     #print(df.head())
     df = df[:40]
-    print(df.columns)
+    # print(df.columns)
     labeled_df = pd.concat([labeled_df, df[['Content','validation']]], axis=0, ignore_index=True)
     labeled_rows = pd.concat([labeled_rows, df[['stance','validation']]], ignore_index=True)
     distinct_values.update(df['validation'].unique())
     # print rows where the validation column is nan
-    print(distinct_values)
+    # print(distinct_values)
     nan_rows = df[df['validation'].isna()]
-    print(nan_rows)
+    # print(nan_rows)
 
 labeled_df.columns = ['text','stance']
 labeled_df.to_csv("data/CulturalDeepfake/human_annotation/combined_labeled_rows.csv", index=False)
 
 
-sys.exit()
 # generate confusion matrix from labeled rows
 confusion_matrix = pd.crosstab(labeled_rows['stance'], labeled_rows['validation'], rownames=['Predicted'], colnames=['Actual'], dropna=False)
 print(confusion_matrix)
@@ -56,4 +55,4 @@ print("F1 Score: ", f1_score)
 import seaborn as sns
 import matplotlib.pyplot as plt
 sns.heatmap(confusion_matrix, annot=True, fmt="d")
-plt.savefig("confusion_matrix.png")
+plt.savefig("confusion_matrix.png")# generate confusion matrix from labeled rows

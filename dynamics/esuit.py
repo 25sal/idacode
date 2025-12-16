@@ -3,6 +3,9 @@ import glob
 import logging
 import matplotlib.pyplot as plt
 import os
+import matplotlib.dates as mdates
+from matplotlib.ticker import MaxNLocator
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -22,6 +25,7 @@ total_events = None
 files = glob.glob(data_folder + 'posts/*.csv')
 logger.info(f'Found {len(files)} files to process.')
 
+timeseries = {}
 for file in files:
     basename = os.path.basename(file)
     results[basename] = {}
@@ -69,11 +73,20 @@ for file in files:
     total_events = total_events.sort_values(by='datetime')
     total_events = total_events.reset_index(drop=True)
 
+
     # count events in interval
-    total_events = total_events.groupby(total_events['datetime'].dt.floor('H')).count()
-    plt.figure
-    total_events.plot(title='Events per day', kind='bar', figsize=(10, 5))
-    plt.savefig(f"{data_folder}output/{os.path.basename(file)[:-3]}_events_per_day.png")
+    total_events = total_events.groupby(total_events['datetime'].dt.floor('h')).count()
+    timeseries[basename] = total_events
+
+    plt.figure()
+    ax = total_events.plot(title=f'Dynamic of post {basename}', kind='bar', figsize=(10, 8))
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Number of comments')
+    ax.set_xticks(ax.get_xticks()[::2])  # una label ogni 2 ore
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m/%d'))
+    plt.xticks(rotation=45)
+    ax.xaxis.set_major_locator(MaxNLocator(nbins=8))  # max 8 tick
+    plt.savefig(f"{data_folder}output/{os.path.basename(file)[:-3]}_events_per_hour.png")
     results[basename] = {
         'min_spread_time_minutes': min_spread_time,
         'max_spread_time_minutes': max_spread_time,
@@ -84,9 +97,13 @@ for file in files:
     }
     # count views
     views = views + df.iloc[0]['ReactionsCount']+df.iloc[0]['SubCommentsCount']
-
-
-
+    
+plt.figure()
+for key, ts in timeseries.items():
+    print(ts.head())
+    t = ts.index - ts.index[0]
+    plt.plot(t,ts/ts.max(), label=key)
+plt.savefig(f"{data_folder}output/aggregated_events_per_hour.png")
 logger.info(f'VIEWS: {views}')
 #content life span
 CLS = total_maxtime-total_mintime
